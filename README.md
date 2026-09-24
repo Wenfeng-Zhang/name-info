@@ -1,3 +1,11 @@
+**English** | [中文](README.zh-CN.md)
+
+[![tests](https://github.com/Wenfeng-Zhang/name-info/actions/workflows/tests.yml/badge.svg)](https://github.com/Wenfeng-Zhang/name-info/actions/workflows/tests.yml)
+[![python](https://img.shields.io/badge/python-3.7%20%7C%203.8%20%7C%203.9%20%7C%203.10%20%7C%203.11%20%7C%203.12%20%7C%203.13%20%7C%203.14-blue)](https://github.com/Wenfeng-Zhang/name-info/blob/main/pyproject.toml)
+[![platforms](https://img.shields.io/badge/platforms-linux%20%7C%20windows%20%7C%20macos-lightgrey)](https://github.com/Wenfeng-Zhang/name-info/actions/workflows/tests.yml)
+[![dependencies](https://img.shields.io/badge/dependencies-none-brightgreen)](https://github.com/Wenfeng-Zhang/name-info/blob/main/pyproject.toml)
+[![license](https://img.shields.io/github/license/Wenfeng-Zhang/name-info)](LICENSE)
+
 # name-info
 
 Parse VFX file names and frame sequences into structured information.
@@ -211,7 +219,8 @@ Two combinations are excluded on purpose: `macos-latest` is arm64 and
 A second job builds the wheel, asserts that it ships `name_info/` and nothing
 else, installs it, and calls `python -m name_info` from an unrelated directory.
 
-CI only starts running once the repository lives on GitHub:
+The repository lives at <https://github.com/Wenfeng-Zhang/name-info>, where CI
+runs on every push and pull request. For a fork or a fresh clone:
 
 ```console
 git remote add origin git@github.com:<you>/name-info.git

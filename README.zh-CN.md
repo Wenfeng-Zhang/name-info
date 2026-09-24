@@ -1,3 +1,11 @@
+[English](README.md) | **中文**
+
+[![tests](https://github.com/Wenfeng-Zhang/name-info/actions/workflows/tests.yml/badge.svg)](https://github.com/Wenfeng-Zhang/name-info/actions/workflows/tests.yml)
+[![python](https://img.shields.io/badge/python-3.7%20%7C%203.8%20%7C%203.9%20%7C%203.10%20%7C%203.11%20%7C%203.12%20%7C%203.13%20%7C%203.14-blue)](https://github.com/Wenfeng-Zhang/name-info/blob/main/pyproject.toml)
+[![platforms](https://img.shields.io/badge/platforms-linux%20%7C%20windows%20%7C%20macos-lightgrey)](https://github.com/Wenfeng-Zhang/name-info/actions/workflows/tests.yml)
+[![dependencies](https://img.shields.io/badge/dependencies-none-brightgreen)](https://github.com/Wenfeng-Zhang/name-info/blob/main/pyproject.toml)
+[![license](https://img.shields.io/github/license/Wenfeng-Zhang/name-info)](LICENSE)
+
 # name-info
 
 将 VFX 文件名与序列帧路径解析成结构化信息。
@@ -204,7 +212,8 @@ python tools/regenerate_snapshot.py
 另有一个独立 job 构建 wheel，断言包里只有 `name_info/`，然后安装它、并从
 一个无关目录调用 `python -m name_info`。
 
-仓库推到 GitHub 之后 CI 才会开始运行：
+仓库地址是 <https://github.com/Wenfeng-Zhang/name-info>，CI 会在每次 push 与
+pull request 时运行。如果是 fork 或全新克隆：
 
 ```console
 git remote add origin git@github.com:<you>/name-info.git

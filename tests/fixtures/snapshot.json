@@ -1,0 +1,3247 @@
+{
+  "description": "Approved parsing snapshots for NameInfo. Every entry is produced by NameInfo itself; regenerate with tools/regenerate_snapshot.py only after an intentional behaviour change. basename/dirname/template are captured on Windows, because they come from os.path.",
+  "edges": [
+    {
+      "expected": {
+        "absname": null,
+        "basename": "",
+        "dirname": "",
+        "ext": "",
+        "filename": "",
+        "name": null,
+        "other_pattern": null,
+        "padding": 0,
+        "pattern": null,
+        "repr": "",
+        "str": "",
+        "template": "",
+        "wild_name": null
+      },
+      "input": ""
+    },
+    {
+      "expected": {
+        "absname": null,
+        "basename": "",
+        "dirname": "",
+        "ext": "",
+        "filename": "",
+        "name": null,
+        "other_pattern": null,
+        "padding": 0,
+        "pattern": null,
+        "repr": "",
+        "str": "",
+        "template": "",
+        "wild_name": null
+      },
+      "input": " "
+    },
+    {
+      "expected": {
+        "absname": null,
+        "basename": "README",
+        "dirname": "",
+        "ext": "",
+        "filename": "README",
+        "name": null,
+        "other_pattern": null,
+        "padding": 0,
+        "pattern": null,
+        "repr": "",
+        "str": "",
+        "template": "README",
+        "wild_name": null
+      },
+      "input": "README"
+    },
+    {
+      "expected": {
+        "absname": null,
+        "basename": ".hidden",
+        "dirname": "",
+        "ext": "",
+        "filename": ".hidden",
+        "name": null,
+        "other_pattern": null,
+        "padding": 0,
+        "pattern": null,
+        "repr": "",
+        "str": "",
+        "template": ".hidden",
+        "wild_name": null
+      },
+      "input": ".hidden"
+    },
+    {
+      "expected": {
+        "absname": null,
+        "basename": "file.",
+        "dirname": "",
+        "ext": "",
+        "filename": "file.",
+        "name": null,
+        "other_pattern": null,
+        "padding": 0,
+        "pattern": null,
+        "repr": "",
+        "str": "",
+        "template": "file.",
+        "wild_name": null
+      },
+      "input": "file."
+    },
+    {
+      "expected": {
+        "absname": null,
+        "basename": ".",
+        "dirname": "",
+        "ext": "",
+        "filename": ".",
+        "name": null,
+        "other_pattern": null,
+        "padding": 0,
+        "pattern": null,
+        "repr": "",
+        "str": "",
+        "template": ".",
+        "wild_name": null
+      },
+      "input": "."
+    },
+    {
+      "expected": {
+        "absname": null,
+        "basename": "..",
+        "dirname": "",
+        "ext": "",
+        "filename": "..",
+        "name": null,
+        "other_pattern": null,
+        "padding": 0,
+        "pattern": null,
+        "repr": "",
+        "str": "",
+        "template": "..",
+        "wild_name": null
+      },
+      "input": ".."
+    },
+    {
+      "expected": {
+        "absname": null,
+        "basename": "",
+        "dirname": "D:/folder",
+        "ext": "",
+        "filename": "D:/folder/",
+        "name": null,
+        "other_pattern": null,
+        "padding": 0,
+        "pattern": null,
+        "repr": "",
+        "str": "",
+        "template": "D:/folder/",
+        "wild_name": null
+      },
+      "input": "D:/folder/"
+    },
+    {
+      "expected": {
+        "absname": "shot",
+        "basename": "shot.1001.exr",
+        "dirname": "",
+        "ext": "exr",
+        "filename": "shot.1001.exr",
+        "name": "shot.",
+        "other_pattern": null,
+        "padding": 4,
+        "pattern": "1001",
+        "repr": "name='shot.', pattern='1001', ext='exr', absname='shot', padding=4, wild_name='shot.????'",
+        "str": "name='shot.', pattern='1001', ext='exr', absname='shot', padding=4, wild_name='shot.????'",
+        "template": "shot.%04d.exr",
+        "wild_name": "shot.????"
+      },
+      "input": "shot.1001.exr"
+    },
+    {
+      "expected": {
+        "absname": "shot",
+        "basename": "shot..1001.exr",
+        "dirname": "",
+        "ext": "exr",
+        "filename": "shot..1001.exr",
+        "name": "shot..",
+        "other_pattern": null,
+        "padding": 4,
+        "pattern": "1001",
+        "repr": "name='shot..', pattern='1001', ext='exr', absname='shot', padding=4, wild_name='shot..????'",
+        "str": "name='shot..', pattern='1001', ext='exr', absname='shot', padding=4, wild_name='shot..????'",
+        "template": "shot..%04d.exr",
+        "wild_name": "shot..????"
+      },
+      "input": "shot..1001.exr"
+    },
+    {
+      "expected": {
+        "absname": "plain",
+        "basename": "plain.exr",
+        "dirname": "",
+        "ext": "exr",
+        "filename": "plain.exr",
+        "name": "plain",
+        "other_pattern": null,
+        "padding": 0,
+        "pattern": "",
+        "repr": "name='plain', pattern='', ext='exr', absname='plain', padding=0, wild_name='plain'",
+        "str": "name='plain', pattern='', ext='exr', absname='plain', padding=0, wild_name='plain'",
+        "template": "plain.exr",
+        "wild_name": "plain"
+      },
+      "input": "plain.exr"
+    },
+    {
+      "expected": {
+        "absname": "plain",
+        "basename": "plain.weird",
+        "dirname": "",
+        "ext": "weird",
+        "filename": "plain.weird",
+        "name": "plain",
+        "other_pattern": null,
+        "padding": 0,
+        "pattern": "",
+        "repr": "name='plain', pattern='', ext='weird', absname='plain', padding=0, wild_name='plain'",
+        "str": "name='plain', pattern='', ext='weird', absname='plain', padding=0, wild_name='plain'",
+        "template": "plain.weird",
+        "wild_name": "plain"
+      },
+      "input": "plain.weird"
+    },
+    {
+      "expected": {
+        "absname": "shot",
+        "basename": "shot.1001.1001",
+        "dirname": "",
+        "ext": "1001",
+        "filename": "shot.1001.1001",
+        "name": "shot.",
+        "other_pattern": null,
+        "padding": 4,
+        "pattern": "1001",
+        "repr": "name='shot.', pattern='1001', ext='1001', absname='shot', padding=4, wild_name='shot.????'",
+        "str": "name='shot.', pattern='1001', ext='1001', absname='shot', padding=4, wild_name='shot.????'",
+        "template": "shot.%04d.1001",
+        "wild_name": "shot.????"
+      },
+      "input": "shot.1001.1001"
+    },
+    {
+      "expected": {
+        "absname": "",
+        "basename": "1001.exr",
+        "dirname": "",
+        "ext": "exr",
+        "filename": "1001.exr",
+        "name": "",
+        "other_pattern": null,
+        "padding": 4,
+        "pattern": "1001",
+        "repr": "name='', pattern='1001', ext='exr', absname='', padding=4, wild_name='????'",
+        "str": "name='', pattern='1001', ext='exr', absname='', padding=4, wild_name='????'",
+        "template": "%04d.exr",
+        "wild_name": "????"
+      },
+      "input": "1001.exr"
+    },
+    {
+      "expected": {
+        "absname": "asset_8k",
+        "basename": "asset_10001_8k.exr",
+        "dirname": "",
+        "ext": "exr",
+        "filename": "asset_10001_8k.exr",
+        "name": "asset_8k",
+        "other_pattern": null,
+        "padding": 5,
+        "pattern": "10001",
+        "repr": "name='asset_8k', pattern='10001', ext='exr', absname='asset_8k', padding=5, wild_name='asset_?????_8k'",
+        "str": "name='asset_8k', pattern='10001', ext='exr', absname='asset_8k', padding=5, wild_name='asset_?????_8k'",
+        "template": "asset_%05d_8k.exr",
+        "wild_name": "asset_?????_8k"
+      },
+      "input": "asset_10001_8k.exr"
+    },
+    {
+      "expected": {
+        "absname": "asset_8k",
+        "basename": "asset_123456_8k.exr",
+        "dirname": "",
+        "ext": "exr",
+        "filename": "asset_123456_8k.exr",
+        "name": "asset_8k",
+        "other_pattern": null,
+        "padding": 6,
+        "pattern": "123456",
+        "repr": "name='asset_8k', pattern='123456', ext='exr', absname='asset_8k', padding=6, wild_name='asset_??????_8k'",
+        "str": "name='asset_8k', pattern='123456', ext='exr', absname='asset_8k', padding=6, wild_name='asset_??????_8k'",
+        "template": "asset_%06d_8k.exr",
+        "wild_name": "asset_??????_8k"
+      },
+      "input": "asset_123456_8k.exr"
+    },
+    {
+      "expected": {
+        "absname": "asset_20001_k",
+        "basename": "asset_20001_8k.exr",
+        "dirname": "",
+        "ext": "exr",
+        "filename": "asset_20001_8k.exr",
+        "name": "asset_20001_k",
+        "other_pattern": null,
+        "padding": 1,
+        "pattern": "8",
+        "repr": "name='asset_20001_k', pattern='8', ext='exr', absname='asset_20001_k', padding=1, wild_name='asset_20001_?k'",
+        "str": "name='asset_20001_k', pattern='8', ext='exr', absname='asset_20001_k', padding=1, wild_name='asset_20001_?k'",
+        "template": "asset_20001_%01dk.exr",
+        "wild_name": "asset_20001_?k"
+      },
+      "input": "asset_20001_8k.exr"
+    },
+    {
+      "expected": {
+        "absname": "a_b_1002_8k",
+        "basename": "a_1001_b_1002_8k.exr",
+        "dirname": "",
+        "ext": "exr",
+        "filename": "a_1001_b_1002_8k.exr",
+        "name": "a_b_1002_8k",
+        "other_pattern": null,
+        "padding": 4,
+        "pattern": "1001",
+        "repr": "name='a_b_1002_8k', pattern='1001', ext='exr', absname='a_b_1002_8k', padding=4, wild_name='a_????_b_1002_8k'",
+        "str": "name='a_b_1002_8k', pattern='1001', ext='exr', absname='a_b_1002_8k', padding=4, wild_name='a_????_b_1002_8k'",
+        "template": "a_%04d_b_1002_8k.exr",
+        "wild_name": "a_????_b_1002_8k"
+      },
+      "input": "a_1001_b_1002_8k.exr"
+    },
+    {
+      "expected": {
+        "absname": "a_1001_b_8k",
+        "basename": "a_1001_b_1001_8k.exr",
+        "dirname": "",
+        "ext": "exr",
+        "filename": "a_1001_b_1001_8k.exr",
+        "name": "a_1001_b_8k",
+        "other_pattern": null,
+        "padding": 4,
+        "pattern": "1001",
+        "repr": "name='a_1001_b_8k', pattern='1001', ext='exr', absname='a_1001_b_8k', padding=4, wild_name='a_1001_b_????_8k'",
+        "str": "name='a_1001_b_8k', pattern='1001', ext='exr', absname='a_1001_b_8k', padding=4, wild_name='a_1001_b_????_8k'",
+        "template": "a_1001_b_%04d_8k.exr",
+        "wild_name": "a_1001_b_????_8k"
+      },
+      "input": "a_1001_b_1001_8k.exr"
+    },
+    {
+      "expected": {
+        "absname": "a_02_b_",
+        "basename": "a_02_b_03.exr",
+        "dirname": "",
+        "ext": "exr",
+        "filename": "a_02_b_03.exr",
+        "name": "a_02_b_",
+        "other_pattern": null,
+        "padding": 2,
+        "pattern": "03",
+        "repr": "name='a_02_b_', pattern='03', ext='exr', absname='a_02_b_', padding=2, wild_name='a_02_b_??'",
+        "str": "name='a_02_b_', pattern='03', ext='exr', absname='a_02_b_', padding=2, wild_name='a_02_b_??'",
+        "template": "a_02_b_%02d.exr",
+        "wild_name": "a_02_b_??"
+      },
+      "input": "a_02_b_03.exr"
+    },
+    {
+      "expected": {
+        "absname": "a_02_b_suffix",
+        "basename": "a_02_b_02_suffix.exr",
+        "dirname": "",
+        "ext": "exr",
+        "filename": "a_02_b_02_suffix.exr",
+        "name": "a_02_b_suffix",
+        "other_pattern": null,
+        "padding": 2,
+        "pattern": "02",
+        "repr": "name='a_02_b_suffix', pattern='02', ext='exr', absname='a_02_b_suffix', padding=2, wild_name='a_02_b_??_suffix'",
+        "str": "name='a_02_b_suffix', pattern='02', ext='exr', absname='a_02_b_suffix', padding=2, wild_name='a_02_b_??_suffix'",
+        "template": "a_02_b_%02d_suffix.exr",
+        "wild_name": "a_02_b_??_suffix"
+      },
+      "input": "a_02_b_02_suffix.exr"
+    },
+    {
+      "expected": {
+        "absname": "tex_(1)",
+        "basename": "tex_1001(1).tif",
+        "dirname": "",
+        "ext": "tif",
+        "filename": "tex_1001(1).tif",
+        "name": "tex_(1)",
+        "other_pattern": null,
+        "padding": 4,
+        "pattern": "1001",
+        "repr": "name='tex_(1)', pattern='1001', ext='tif', absname='tex_(1)', padding=4, wild_name='tex_????(1)'",
+        "str": "name='tex_(1)', pattern='1001', ext='tif', absname='tex_(1)', padding=4, wild_name='tex_????(1)'",
+        "template": "tex_%04d(1).tif",
+        "wild_name": "tex_????(1)"
+      },
+      "input": "tex_1001(1).tif"
+    },
+    {
+      "expected": {
+        "absname": "tex_Height",
+        "basename": "tex_1001_Height.tif",
+        "dirname": "",
+        "ext": "tif",
+        "filename": "tex_1001_Height.tif",
+        "name": "tex_Height",
+        "other_pattern": null,
+        "padding": 4,
+        "pattern": "1001",
+        "repr": "name='tex_Height', pattern='1001', ext='tif', absname='tex_Height', padding=4, wild_name='tex_????_Height'",
+        "str": "name='tex_Height', pattern='1001', ext='tif', absname='tex_Height', padding=4, wild_name='tex_????_Height'",
+        "template": "tex_%04d_Height.tif",
+        "wild_name": "tex_????_Height"
+      },
+      "input": "tex_1001_Height.tif"
+    },
+    {
+      "expected": {
+        "absname": "tex_8k",
+        "basename": "tex_1001_8k.tif",
+        "dirname": "",
+        "ext": "tif",
+        "filename": "tex_1001_8k.tif",
+        "name": "tex_8k",
+        "other_pattern": null,
+        "padding": 4,
+        "pattern": "1001",
+        "repr": "name='tex_8k', pattern='1001', ext='tif', absname='tex_8k', padding=4, wild_name='tex_????_8k'",
+        "str": "name='tex_8k', pattern='1001', ext='tif', absname='tex_8k', padding=4, wild_name='tex_????_8k'",
+        "template": "tex_%04d_8k.tif",
+        "wild_name": "tex_????_8k"
+      },
+      "input": "tex_1001_8k.tif"
+    },
+    {
+      "expected": {
+        "absname": "shot_v001",
+        "basename": "shot_v001.exr",
+        "dirname": "",
+        "ext": "exr",
+        "filename": "shot_v001.exr",
+        "name": "shot_v001",
+        "other_pattern": null,
+        "padding": 0,
+        "pattern": "",
+        "repr": "name='shot_v001', pattern='', ext='exr', absname='shot_v001', padding=0, wild_name='shot_v001'",
+        "str": "name='shot_v001', pattern='', ext='exr', absname='shot_v001', padding=0, wild_name='shot_v001'",
+        "template": "shot_v001.exr",
+        "wild_name": "shot_v001"
+      },
+      "input": "shot_v001.exr"
+    },
+    {
+      "expected": {
+        "absname": "shot_V1001",
+        "basename": "shot_V1001.exr",
+        "dirname": "",
+        "ext": "exr",
+        "filename": "shot_V1001.exr",
+        "name": "shot_V1001",
+        "other_pattern": null,
+        "padding": 0,
+        "pattern": "",
+        "repr": "name='shot_V1001', pattern='', ext='exr', absname='shot_V1001', padding=0, wild_name='shot_V1001'",
+        "str": "name='shot_V1001', pattern='', ext='exr', absname='shot_V1001', padding=0, wild_name='shot_V1001'",
+        "template": "shot_V1001.exr",
+        "wild_name": "shot_V1001"
+      },
+      "input": "shot_V1001.exr"
+    },
+    {
+      "expected": {
+        "absname": "shot_v1001_diff",
+        "basename": "shot_v1001_diff.exr",
+        "dirname": "",
+        "ext": "exr",
+        "filename": "shot_v1001_diff.exr",
+        "name": "shot_v1001_diff",
+        "other_pattern": null,
+        "padding": 0,
+        "pattern": "",
+        "repr": "name='shot_v1001_diff', pattern='', ext='exr', absname='shot_v1001_diff', padding=0, wild_name='shot_v1001_diff'",
+        "str": "name='shot_v1001_diff', pattern='', ext='exr', absname='shot_v1001_diff', padding=0, wild_name='shot_v1001_diff'",
+        "template": "shot_v1001_diff.exr",
+        "wild_name": "shot_v1001_diff"
+      },
+      "input": "shot_v1001_diff.exr"
+    },
+    {
+      "expected": {
+        "absname": "shot_1001_v002",
+        "basename": "shot_1001_v002.exr",
+        "dirname": "",
+        "ext": "exr",
+        "filename": "shot_1001_v002.exr",
+        "name": "shot_1001_v002",
+        "other_pattern": null,
+        "padding": 0,
+        "pattern": "",
+        "repr": "name='shot_1001_v002', pattern='', ext='exr', absname='shot_1001_v002', padding=0, wild_name='shot_1001_v002'",
+        "str": "name='shot_1001_v002', pattern='', ext='exr', absname='shot_1001_v002', padding=0, wild_name='shot_1001_v002'",
+        "template": "shot_1001_v002.exr",
+        "wild_name": "shot_1001_v002"
+      },
+      "input": "shot_1001_v002.exr"
+    },
+    {
+      "expected": {
+        "absname": "tex_",
+        "basename": "tex_u1_v1.exr",
+        "dirname": "",
+        "ext": "exr",
+        "filename": "tex_u1_v1.exr",
+        "name": "tex_",
+        "other_pattern": null,
+        "padding": 0,
+        "pattern": "u1_v1",
+        "repr": "name='tex_', pattern='u1_v1', ext='exr', absname='tex_', padding=0, wild_name='tex_u?_v?'",
+        "str": "name='tex_', pattern='u1_v1', ext='exr', absname='tex_', padding=0, wild_name='tex_u?_v?'",
+        "template": "tex_u1_v1.exr",
+        "wild_name": "tex_u?_v?"
+      },
+      "input": "tex_u1_v1.exr"
+    },
+    {
+      "expected": {
+        "absname": "tex_",
+        "basename": "tex_u10_v1.exr",
+        "dirname": "",
+        "ext": "exr",
+        "filename": "tex_u10_v1.exr",
+        "name": "tex_",
+        "other_pattern": null,
+        "padding": 0,
+        "pattern": "u10_v1",
+        "repr": "name='tex_', pattern='u10_v1', ext='exr', absname='tex_', padding=0, wild_name='tex_u??_v?'",
+        "str": "name='tex_', pattern='u10_v1', ext='exr', absname='tex_', padding=0, wild_name='tex_u??_v?'",
+        "template": "tex_u10_v1.exr",
+        "wild_name": "tex_u??_v?"
+      },
+      "input": "tex_u10_v1.exr"
+    },
+    {
+      "expected": {
+        "absname": "tex_",
+        "basename": "tex_u1_v10.exr",
+        "dirname": "",
+        "ext": "exr",
+        "filename": "tex_u1_v10.exr",
+        "name": "tex_",
+        "other_pattern": null,
+        "padding": 0,
+        "pattern": "u1_v10",
+        "repr": "name='tex_', pattern='u1_v10', ext='exr', absname='tex_', padding=0, wild_name='tex_u?_v??'",
+        "str": "name='tex_', pattern='u1_v10', ext='exr', absname='tex_', padding=0, wild_name='tex_u?_v??'",
+        "template": "tex_u1_v10.exr",
+        "wild_name": "tex_u?_v??"
+      },
+      "input": "tex_u1_v10.exr"
+    },
+    {
+      "expected": {
+        "absname": "tex_diff",
+        "basename": "tex_u10_v10_diff.exr",
+        "dirname": "",
+        "ext": "exr",
+        "filename": "tex_u10_v10_diff.exr",
+        "name": "tex_diff",
+        "other_pattern": null,
+        "padding": 0,
+        "pattern": "u10_v10",
+        "repr": "name='tex_diff', pattern='u10_v10', ext='exr', absname='tex_diff', padding=0, wild_name='tex_u??_v??_diff'",
+        "str": "name='tex_diff', pattern='u10_v10', ext='exr', absname='tex_diff', padding=0, wild_name='tex_u??_v??_diff'",
+        "template": "tex_u10_v10_diff.exr",
+        "wild_name": "tex_u??_v??_diff"
+      },
+      "input": "tex_u10_v10_diff.exr"
+    },
+    {
+      "expected": {
+        "absname": "tex_diff",
+        "basename": "tex_U12_V34_diff.exr",
+        "dirname": "",
+        "ext": "exr",
+        "filename": "tex_U12_V34_diff.exr",
+        "name": "tex_diff",
+        "other_pattern": null,
+        "padding": 0,
+        "pattern": "U12_V34",
+        "repr": "name='tex_diff', pattern='U12_V34', ext='exr', absname='tex_diff', padding=0, wild_name='tex_U??_V??_diff'",
+        "str": "name='tex_diff', pattern='U12_V34', ext='exr', absname='tex_diff', padding=0, wild_name='tex_U??_V??_diff'",
+        "template": "tex_U12_V34_diff.exr",
+        "wild_name": "tex_U??_V??_diff"
+      },
+      "input": "tex_U12_V34_diff.exr"
+    },
+    {
+      "expected": {
+        "absname": "tex_u1_v1",
+        "basename": "tex_u1_v1.1.exr",
+        "dirname": "",
+        "ext": "exr",
+        "filename": "tex_u1_v1.1.exr",
+        "name": "tex_u1_v1.",
+        "other_pattern": "u1_v1",
+        "padding": 1,
+        "pattern": "1",
+        "repr": "name='tex_u1_v1.', pattern='1', ext='exr', absname='tex_u1_v1', padding=1, wild_name='tex_u1_v1.?'",
+        "str": "name='tex_u1_v1.', pattern='1', ext='exr', absname='tex_u1_v1', padding=1, wild_name='tex_u1_v1.?'",
+        "template": "tex_u1_v1.%01d.exr",
+        "wild_name": "tex_u1_v1.?"
+      },
+      "input": "tex_u1_v1.1.exr"
+    },
+    {
+      "expected": {
+        "absname": "tex_u1_v1_diff",
+        "basename": "tex_u1_v1_u1_v1_diff.exr",
+        "dirname": "",
+        "ext": "exr",
+        "filename": "tex_u1_v1_u1_v1_diff.exr",
+        "name": "tex_u1_v1_diff",
+        "other_pattern": null,
+        "padding": 0,
+        "pattern": "u1_v1",
+        "repr": "name='tex_u1_v1_diff', pattern='u1_v1', ext='exr', absname='tex_u1_v1_diff', padding=0, wild_name='tex_u1_v1_u?_v?_diff'",
+        "str": "name='tex_u1_v1_diff', pattern='u1_v1', ext='exr', absname='tex_u1_v1_diff', padding=0, wild_name='tex_u1_v1_u?_v?_diff'",
+        "template": "tex_u1_v1_u1_v1_diff.exr",
+        "wild_name": "tex_u1_v1_u?_v?_diff"
+      },
+      "input": "tex_u1_v1_u1_v1_diff.exr"
+    },
+    {
+      "expected": {
+        "absname": "a_u<U>_v<V>_b_",
+        "basename": "a_u<U>_v<V>_b_u<U>_v<V>.exr",
+        "dirname": "",
+        "ext": "exr",
+        "filename": "a_u<U>_v<V>_b_u<U>_v<V>.exr",
+        "name": "a_u<U>_v<V>_b_",
+        "other_pattern": null,
+        "padding": 0,
+        "pattern": "u<U>_v<V>",
+        "repr": "name='a_u<U>_v<V>_b_', pattern='u<U>_v<V>', ext='exr', absname='a_u<U>_v<V>_b_', padding=0, wild_name='a_u?_v?_b_u?_v?'",
+        "str": "name='a_u<U>_v<V>_b_', pattern='u<U>_v<V>', ext='exr', absname='a_u<U>_v<V>_b_', padding=0, wild_name='a_u?_v?_b_u?_v?'",
+        "template": "a_u<U>_v<V>_b_u<U>_v<V>.exr",
+        "wild_name": "a_u?_v?_b_u?_v?"
+      },
+      "input": "a_u<U>_v<V>_b_u<U>_v<V>.exr"
+    },
+    {
+      "expected": {
+        "absname": "a_diff",
+        "basename": "a_U<U>_V<V>_diff.exr",
+        "dirname": "",
+        "ext": "exr",
+        "filename": "a_U<U>_V<V>_diff.exr",
+        "name": "a_diff",
+        "other_pattern": null,
+        "padding": 0,
+        "pattern": "U<U>_V<V>",
+        "repr": "name='a_diff', pattern='U<U>_V<V>', ext='exr', absname='a_diff', padding=0, wild_name='a_U?_V?_diff'",
+        "str": "name='a_diff', pattern='U<U>_V<V>', ext='exr', absname='a_diff', padding=0, wild_name='a_U?_V?_diff'",
+        "template": "a_U<U>_V<V>_diff.exr",
+        "wild_name": "a_U?_V?_diff"
+      },
+      "input": "a_U<U>_V<V>_diff.exr"
+    },
+    {
+      "expected": {
+        "absname": "a_%04d_b_",
+        "basename": "a_%04d_b_%04d.exr",
+        "dirname": "",
+        "ext": "exr",
+        "filename": "a_%04d_b_%04d.exr",
+        "name": "a_%04d_b_",
+        "other_pattern": null,
+        "padding": 4,
+        "pattern": "%04d",
+        "repr": "name='a_%04d_b_', pattern='%04d', ext='exr', absname='a_%04d_b_', padding=4, wild_name='a_%04d_b_????'",
+        "str": "name='a_%04d_b_', pattern='%04d', ext='exr', absname='a_%04d_b_', padding=4, wild_name='a_%04d_b_????'",
+        "template": "a_%04d_b_%04d.exr",
+        "wild_name": "a_%04d_b_????"
+      },
+      "input": "a_%04d_b_%04d.exr"
+    },
+    {
+      "expected": {
+        "absname": "a_b_####",
+        "basename": "a_%04d_b_####.exr",
+        "dirname": "",
+        "ext": "exr",
+        "filename": "a_%04d_b_####.exr",
+        "name": "a_b_####",
+        "other_pattern": null,
+        "padding": 4,
+        "pattern": "%04d",
+        "repr": "name='a_b_####', pattern='%04d', ext='exr', absname='a_b_####', padding=4, wild_name='a_????_b_####'",
+        "str": "name='a_b_####', pattern='%04d', ext='exr', absname='a_b_####', padding=4, wild_name='a_????_b_####'",
+        "template": "a_%04d_b_####.exr",
+        "wild_name": "a_????_b_####"
+      },
+      "input": "a_%04d_b_####.exr"
+    },
+    {
+      "expected": {
+        "absname": "a_b_<UDIM>",
+        "basename": "a_<udim>_b_<UDIM>.exr",
+        "dirname": "",
+        "ext": "exr",
+        "filename": "a_<udim>_b_<UDIM>.exr",
+        "name": "a_b_<UDIM>",
+        "other_pattern": null,
+        "padding": 4,
+        "pattern": "<udim>",
+        "repr": "name='a_b_<UDIM>', pattern='<udim>', ext='exr', absname='a_b_<UDIM>', padding=4, wild_name='a_????_b_<UDIM>'",
+        "str": "name='a_b_<UDIM>', pattern='<udim>', ext='exr', absname='a_b_<UDIM>', padding=4, wild_name='a_????_b_<UDIM>'",
+        "template": "a_<UDIM>_b_<UDIM>.exr",
+        "wild_name": "a_????_b_<UDIM>"
+      },
+      "input": "a_<udim>_b_<UDIM>.exr"
+    },
+    {
+      "expected": {
+        "absname": "a_",
+        "basename": "a_1001.exr.tx",
+        "dirname": "",
+        "ext": "tx",
+        "filename": "a_1001.exr.tx",
+        "name": "a_",
+        "other_pattern": null,
+        "padding": 4,
+        "pattern": "1001",
+        "repr": "name='a_', pattern='1001', ext='tx', absname='a_', padding=4, wild_name='a_????'",
+        "str": "name='a_', pattern='1001', ext='tx', absname='a_', padding=4, wild_name='a_????'",
+        "template": "a_%04d.exr.tx",
+        "wild_name": "a_????"
+      },
+      "input": "a_1001.exr.tx"
+    },
+    {
+      "expected": {
+        "absname": "a_foo",
+        "basename": "a_1001.foo.tx",
+        "dirname": "",
+        "ext": "tx",
+        "filename": "a_1001.foo.tx",
+        "name": "a_foo",
+        "other_pattern": null,
+        "padding": 4,
+        "pattern": "1001",
+        "repr": "name='a_foo', pattern='1001', ext='tx', absname='a_foo', padding=4, wild_name='a_????.foo'",
+        "str": "name='a_foo', pattern='1001', ext='tx', absname='a_foo', padding=4, wild_name='a_????.foo'",
+        "template": "a_%04d.foo.tx",
+        "wild_name": "a_????.foo"
+      },
+      "input": "a_1001.foo.tx"
+    },
+    {
+      "expected": {
+        "absname": "a_bgeo.sc",
+        "basename": "a_1001.bgeo.sc.tx",
+        "dirname": "",
+        "ext": "tx",
+        "filename": "a_1001.bgeo.sc.tx",
+        "name": "a_bgeo.sc",
+        "other_pattern": null,
+        "padding": 4,
+        "pattern": "1001",
+        "repr": "name='a_bgeo.sc', pattern='1001', ext='tx', absname='a_bgeo.sc', padding=4, wild_name='a_????.bgeo.sc'",
+        "str": "name='a_bgeo.sc', pattern='1001', ext='tx', absname='a_bgeo.sc', padding=4, wild_name='a_????.bgeo.sc'",
+        "template": "a_%04d.bgeo.sc.tx",
+        "wild_name": "a_????.bgeo.sc"
+      },
+      "input": "a_1001.bgeo.sc.tx"
+    },
+    {
+      "expected": {
+        "absname": "a_",
+        "basename": "a_1001.TIF.TX",
+        "dirname": "",
+        "ext": "tx",
+        "filename": "a_1001.TIF.TX",
+        "name": "a_",
+        "other_pattern": null,
+        "padding": 4,
+        "pattern": "1001",
+        "repr": "name='a_', pattern='1001', ext='tx', absname='a_', padding=4, wild_name='a_????'",
+        "str": "name='a_', pattern='1001', ext='tx', absname='a_', padding=4, wild_name='a_????'",
+        "template": "a_%04d.TIF.TX",
+        "wild_name": "a_????"
+      },
+      "input": "a_1001.TIF.TX"
+    },
+    {
+      "expected": {
+        "absname": "a_",
+        "basename": "a_1001.tx",
+        "dirname": "",
+        "ext": "tx",
+        "filename": "a_1001.tx",
+        "name": "a_",
+        "other_pattern": null,
+        "padding": 4,
+        "pattern": "1001",
+        "repr": "name='a_', pattern='1001', ext='tx', absname='a_', padding=4, wild_name='a_????'",
+        "str": "name='a_', pattern='1001', ext='tx', absname='a_', padding=4, wild_name='a_????'",
+        "template": "a_%04d.tx",
+        "wild_name": "a_????"
+      },
+      "input": "a_1001.tx"
+    },
+    {
+      "expected": {
+        "absname": "shot",
+        "basename": "shot.1001.exr",
+        "dirname": "/",
+        "ext": "exr",
+        "filename": "/shot.1001.exr",
+        "name": "shot.",
+        "other_pattern": null,
+        "padding": 4,
+        "pattern": "1001",
+        "repr": "name='shot.', pattern='1001', ext='exr', absname='shot', padding=4, wild_name='shot.????'",
+        "str": "name='shot.', pattern='1001', ext='exr', absname='shot', padding=4, wild_name='shot.????'",
+        "template": "/shot.%04d.exr",
+        "wild_name": "shot.????"
+      },
+      "input": "/shot.1001.exr"
+    },
+    {
+      "expected": {
+        "absname": "shot",
+        "basename": "shot.1001.exr",
+        "dirname": "D:/mixed/path",
+        "ext": "exr",
+        "filename": "D:/mixed/path/shot.1001.exr",
+        "name": "shot.",
+        "other_pattern": null,
+        "padding": 4,
+        "pattern": "1001",
+        "repr": "name='shot.', pattern='1001', ext='exr', absname='shot', padding=4, wild_name='shot.????'",
+        "str": "name='shot.', pattern='1001', ext='exr', absname='shot', padding=4, wild_name='shot.????'",
+        "template": "D:/mixed/path/shot.%04d.exr",
+        "wild_name": "shot.????"
+      },
+      "input": "  D:\\mixed/path\\shot.1001.exr  "
+    },
+    {
+      "expected": {
+        "absname": "shot",
+        "basename": "shot.1001.exr",
+        "dirname": "D://folder",
+        "ext": "exr",
+        "filename": "D://folder///shot.1001.exr",
+        "name": "shot.",
+        "other_pattern": null,
+        "padding": 4,
+        "pattern": "1001",
+        "repr": "name='shot.', pattern='1001', ext='exr', absname='shot', padding=4, wild_name='shot.????'",
+        "str": "name='shot.', pattern='1001', ext='exr', absname='shot', padding=4, wild_name='shot.????'",
+        "template": "D://folder/shot.%04d.exr",
+        "wild_name": "shot.????"
+      },
+      "input": "D://folder///shot.1001.exr"
+    },
+    {
+      "expected": {
+        "absname": "plain",
+        "basename": "plain.exr",
+        "dirname": "D:/folder.with.1001",
+        "ext": "exr",
+        "filename": "D:/folder.with.1001/plain.exr",
+        "name": "plain",
+        "other_pattern": null,
+        "padding": 0,
+        "pattern": "",
+        "repr": "name='plain', pattern='', ext='exr', absname='plain', padding=0, wild_name='plain'",
+        "str": "name='plain', pattern='', ext='exr', absname='plain', padding=0, wild_name='plain'",
+        "template": "D:/folder.with.1001/plain.exr",
+        "wild_name": "plain"
+      },
+      "input": "D:/folder.with.1001/plain.exr"
+    },
+    {
+      "expected": {
+        "absname": "\u8d44\u4ea7_\u8d34\u56fe",
+        "basename": "\u8d44\u4ea7_\u8d34\u56fe.1001.exr",
+        "dirname": "",
+        "ext": "exr",
+        "filename": "\u8d44\u4ea7_\u8d34\u56fe.1001.exr",
+        "name": "\u8d44\u4ea7_\u8d34\u56fe.",
+        "other_pattern": null,
+        "padding": 4,
+        "pattern": "1001",
+        "repr": "name='\u8d44\u4ea7_\u8d34\u56fe.', pattern='1001', ext='exr', absname='\u8d44\u4ea7_\u8d34\u56fe', padding=4, wild_name='\u8d44\u4ea7_\u8d34\u56fe.????'",
+        "str": "name='\u8d44\u4ea7_\u8d34\u56fe.', pattern='1001', ext='exr', absname='\u8d44\u4ea7_\u8d34\u56fe', padding=4, wild_name='\u8d44\u4ea7_\u8d34\u56fe.????'",
+        "template": "\u8d44\u4ea7_\u8d34\u56fe.%04d.exr",
+        "wild_name": "\u8d44\u4ea7_\u8d34\u56fe.????"
+      },
+      "input": "\u8d44\u4ea7_\u8d34\u56fe.1001.exr"
+    },
+    {
+      "expected": {
+        "absname": "tex",
+        "basename": "tex.\uff11\uff10\uff10\uff11.exr",
+        "dirname": "",
+        "ext": "exr",
+        "filename": "tex.\uff11\uff10\uff10\uff11.exr",
+        "name": "tex.",
+        "other_pattern": null,
+        "padding": 4,
+        "pattern": "\uff11\uff10\uff10\uff11",
+        "repr": "name='tex.', pattern='\uff11\uff10\uff10\uff11', ext='exr', absname='tex', padding=4, wild_name='tex.????'",
+        "str": "name='tex.', pattern='\uff11\uff10\uff10\uff11', ext='exr', absname='tex', padding=4, wild_name='tex.????'",
+        "template": "tex.%04d.exr",
+        "wild_name": "tex.????"
+      },
+      "input": "tex.\uff11\uff10\uff10\uff11.exr"
+    },
+    {
+      "expected": {
+        "absname": "cache_rame",
+        "basename": "cache_$Frame.exr",
+        "dirname": "",
+        "ext": "exr",
+        "filename": "cache_$Frame.exr",
+        "name": "cache_rame",
+        "other_pattern": null,
+        "padding": 0,
+        "pattern": "$F",
+        "repr": "name='cache_rame', pattern='$F', ext='exr', absname='cache_rame', padding=0, wild_name='cache_$Frame'",
+        "str": "name='cache_rame', pattern='$F', ext='exr', absname='cache_rame', padding=0, wild_name='cache_$Frame'",
+        "template": "cache_$Frame.exr",
+        "wild_name": "cache_$Frame"
+      },
+      "input": "cache_$Frame.exr"
+    },
+    {
+      "expected": {
+        "absname": "x_oo",
+        "basename": "x$Foo.exr",
+        "dirname": "",
+        "ext": "exr",
+        "filename": "x$Foo.exr",
+        "name": "x_oo",
+        "other_pattern": null,
+        "padding": 0,
+        "pattern": "$F",
+        "repr": "name='x_oo', pattern='$F', ext='exr', absname='x_oo', padding=0, wild_name='x$Foo'",
+        "str": "name='x_oo', pattern='$F', ext='exr', absname='x_oo', padding=0, wild_name='x$Foo'",
+        "template": "x$Foo.exr",
+        "wild_name": "x$Foo"
+      },
+      "input": "x$Foo.exr"
+    },
+    {
+      "expected": {
+        "absname": "pct_100_iscount",
+        "basename": "pct_100%discount.exr",
+        "dirname": "",
+        "ext": "exr",
+        "filename": "pct_100%discount.exr",
+        "name": "pct_100_iscount",
+        "other_pattern": null,
+        "padding": 0,
+        "pattern": "%d",
+        "repr": "name='pct_100_iscount', pattern='%d', ext='exr', absname='pct_100_iscount', padding=0, wild_name='pct_100%discount'",
+        "str": "name='pct_100_iscount', pattern='%d', ext='exr', absname='pct_100_iscount', padding=0, wild_name='pct_100%discount'",
+        "template": "pct_100%discount.exr",
+        "wild_name": "pct_100%discount"
+      },
+      "input": "pct_100%discount.exr"
+    },
+    {
+      "expected": {
+        "absname": "note_10_v1",
+        "basename": "note_10#_v1.exr",
+        "dirname": "",
+        "ext": "exr",
+        "filename": "note_10#_v1.exr",
+        "name": "note_10_v1",
+        "other_pattern": null,
+        "padding": 1,
+        "pattern": "#",
+        "repr": "name='note_10_v1', pattern='#', ext='exr', absname='note_10_v1', padding=1, wild_name='note_10?_v1'",
+        "str": "name='note_10_v1', pattern='#', ext='exr', absname='note_10_v1', padding=1, wild_name='note_10?_v1'",
+        "template": "note_10#_v1.exr",
+        "wild_name": "note_10?_v1"
+      },
+      "input": "note_10#_v1.exr"
+    },
+    {
+      "expected": {
+        "absname": "plate_1001_",
+        "basename": "plate_1001_2001.exr",
+        "dirname": "",
+        "ext": "exr",
+        "filename": "plate_1001_2001.exr",
+        "name": "plate_1001_",
+        "other_pattern": null,
+        "padding": 4,
+        "pattern": "2001",
+        "repr": "name='plate_1001_', pattern='2001', ext='exr', absname='plate_1001_', padding=4, wild_name='plate_1001_????'",
+        "str": "name='plate_1001_', pattern='2001', ext='exr', absname='plate_1001_', padding=4, wild_name='plate_1001_????'",
+        "template": "plate_1001_%04d.exr",
+        "wild_name": "plate_1001_????"
+      },
+      "input": "plate_1001_2001.exr"
+    },
+    {
+      "expected": {
+        "absname": "tex",
+        "basename": "tex.%d.exr",
+        "dirname": "",
+        "ext": "exr",
+        "filename": "tex.%d.exr",
+        "name": "tex.",
+        "other_pattern": null,
+        "padding": 0,
+        "pattern": "%d",
+        "repr": "name='tex.', pattern='%d', ext='exr', absname='tex', padding=0, wild_name='tex.%d'",
+        "str": "name='tex.', pattern='%d', ext='exr', absname='tex', padding=0, wild_name='tex.%d'",
+        "template": "tex.%d.exr",
+        "wild_name": "tex.%d"
+      },
+      "input": "tex.%d.exr"
+    },
+    {
+      "expected": {
+        "absname": "tex_diff",
+        "basename": "tex_%d_diff.exr",
+        "dirname": "",
+        "ext": "exr",
+        "filename": "tex_%d_diff.exr",
+        "name": "tex_diff",
+        "other_pattern": null,
+        "padding": 0,
+        "pattern": "%d",
+        "repr": "name='tex_diff', pattern='%d', ext='exr', absname='tex_diff', padding=0, wild_name='tex_%d_diff'",
+        "str": "name='tex_diff', pattern='%d', ext='exr', absname='tex_diff', padding=0, wild_name='tex_%d_diff'",
+        "template": "tex_%d_diff.exr",
+        "wild_name": "tex_%d_diff"
+      },
+      "input": "tex_%d_diff.exr"
+    },
+    {
+      "expected": {
+        "absname": "tex",
+        "basename": "tex.%0d.exr",
+        "dirname": "",
+        "ext": "exr",
+        "filename": "tex.%0d.exr",
+        "name": "tex.",
+        "other_pattern": null,
+        "padding": 0,
+        "pattern": "%0d",
+        "repr": "name='tex.', pattern='%0d', ext='exr', absname='tex', padding=0, wild_name='tex.%0d'",
+        "str": "name='tex.', pattern='%0d', ext='exr', absname='tex', padding=0, wild_name='tex.%0d'",
+        "template": "tex.%0d.exr",
+        "wild_name": "tex.%0d"
+      },
+      "input": "tex.%0d.exr"
+    },
+    {
+      "expected": {
+        "absname": "tex_diff",
+        "basename": "tex_%0d_diff.exr",
+        "dirname": "",
+        "ext": "exr",
+        "filename": "tex_%0d_diff.exr",
+        "name": "tex_diff",
+        "other_pattern": null,
+        "padding": 0,
+        "pattern": "%0d",
+        "repr": "name='tex_diff', pattern='%0d', ext='exr', absname='tex_diff', padding=0, wild_name='tex_%0d_diff'",
+        "str": "name='tex_diff', pattern='%0d', ext='exr', absname='tex_diff', padding=0, wild_name='tex_%0d_diff'",
+        "template": "tex_%0d_diff.exr",
+        "wild_name": "tex_%0d_diff"
+      },
+      "input": "tex_%0d_diff.exr"
+    },
+    {
+      "expected": {
+        "absname": "tex",
+        "basename": "tex.%4d.exr",
+        "dirname": "",
+        "ext": "exr",
+        "filename": "tex.%4d.exr",
+        "name": "tex.",
+        "other_pattern": null,
+        "padding": 4,
+        "pattern": "%4d",
+        "repr": "name='tex.', pattern='%4d', ext='exr', absname='tex', padding=4, wild_name='tex.????'",
+        "str": "name='tex.', pattern='%4d', ext='exr', absname='tex', padding=4, wild_name='tex.????'",
+        "template": "tex.%4d.exr",
+        "wild_name": "tex.????"
+      },
+      "input": "tex.%4d.exr"
+    },
+    {
+      "expected": {
+        "absname": "tex_diff",
+        "basename": "tex_%4d_diff.exr",
+        "dirname": "",
+        "ext": "exr",
+        "filename": "tex_%4d_diff.exr",
+        "name": "tex_diff",
+        "other_pattern": null,
+        "padding": 4,
+        "pattern": "%4d",
+        "repr": "name='tex_diff', pattern='%4d', ext='exr', absname='tex_diff', padding=4, wild_name='tex_????_diff'",
+        "str": "name='tex_diff', pattern='%4d', ext='exr', absname='tex_diff', padding=4, wild_name='tex_????_diff'",
+        "template": "tex_%4d_diff.exr",
+        "wild_name": "tex_????_diff"
+      },
+      "input": "tex_%4d_diff.exr"
+    },
+    {
+      "expected": {
+        "absname": "tex",
+        "basename": "tex.%04d.exr",
+        "dirname": "",
+        "ext": "exr",
+        "filename": "tex.%04d.exr",
+        "name": "tex.",
+        "other_pattern": null,
+        "padding": 4,
+        "pattern": "%04d",
+        "repr": "name='tex.', pattern='%04d', ext='exr', absname='tex', padding=4, wild_name='tex.????'",
+        "str": "name='tex.', pattern='%04d', ext='exr', absname='tex', padding=4, wild_name='tex.????'",
+        "template": "tex.%04d.exr",
+        "wild_name": "tex.????"
+      },
+      "input": "tex.%04d.exr"
+    },
+    {
+      "expected": {
+        "absname": "tex_diff",
+        "basename": "tex_%04d_diff.exr",
+        "dirname": "",
+        "ext": "exr",
+        "filename": "tex_%04d_diff.exr",
+        "name": "tex_diff",
+        "other_pattern": null,
+        "padding": 4,
+        "pattern": "%04d",
+        "repr": "name='tex_diff', pattern='%04d', ext='exr', absname='tex_diff', padding=4, wild_name='tex_????_diff'",
+        "str": "name='tex_diff', pattern='%04d', ext='exr', absname='tex_diff', padding=4, wild_name='tex_????_diff'",
+        "template": "tex_%04d_diff.exr",
+        "wild_name": "tex_????_diff"
+      },
+      "input": "tex_%04d_diff.exr"
+    },
+    {
+      "expected": {
+        "absname": "tex",
+        "basename": "tex.%08d.exr",
+        "dirname": "",
+        "ext": "exr",
+        "filename": "tex.%08d.exr",
+        "name": "tex.",
+        "other_pattern": null,
+        "padding": 8,
+        "pattern": "%08d",
+        "repr": "name='tex.', pattern='%08d', ext='exr', absname='tex', padding=8, wild_name='tex.????????'",
+        "str": "name='tex.', pattern='%08d', ext='exr', absname='tex', padding=8, wild_name='tex.????????'",
+        "template": "tex.%08d.exr",
+        "wild_name": "tex.????????"
+      },
+      "input": "tex.%08d.exr"
+    },
+    {
+      "expected": {
+        "absname": "tex_diff",
+        "basename": "tex_%08d_diff.exr",
+        "dirname": "",
+        "ext": "exr",
+        "filename": "tex_%08d_diff.exr",
+        "name": "tex_diff",
+        "other_pattern": null,
+        "padding": 8,
+        "pattern": "%08d",
+        "repr": "name='tex_diff', pattern='%08d', ext='exr', absname='tex_diff', padding=8, wild_name='tex_????????_diff'",
+        "str": "name='tex_diff', pattern='%08d', ext='exr', absname='tex_diff', padding=8, wild_name='tex_????????_diff'",
+        "template": "tex_%08d_diff.exr",
+        "wild_name": "tex_????????_diff"
+      },
+      "input": "tex_%08d_diff.exr"
+    },
+    {
+      "expected": {
+        "absname": "tex",
+        "basename": "tex.%04D.exr",
+        "dirname": "",
+        "ext": "exr",
+        "filename": "tex.%04D.exr",
+        "name": "tex.",
+        "other_pattern": null,
+        "padding": 4,
+        "pattern": "%04D",
+        "repr": "name='tex.', pattern='%04D', ext='exr', absname='tex', padding=4, wild_name='tex.????'",
+        "str": "name='tex.', pattern='%04D', ext='exr', absname='tex', padding=4, wild_name='tex.????'",
+        "template": "tex.%04D.exr",
+        "wild_name": "tex.????"
+      },
+      "input": "tex.%04D.exr"
+    },
+    {
+      "expected": {
+        "absname": "tex_diff",
+        "basename": "tex_%04D_diff.exr",
+        "dirname": "",
+        "ext": "exr",
+        "filename": "tex_%04D_diff.exr",
+        "name": "tex_diff",
+        "other_pattern": null,
+        "padding": 4,
+        "pattern": "%04D",
+        "repr": "name='tex_diff', pattern='%04D', ext='exr', absname='tex_diff', padding=4, wild_name='tex_????_diff'",
+        "str": "name='tex_diff', pattern='%04D', ext='exr', absname='tex_diff', padding=4, wild_name='tex_????_diff'",
+        "template": "tex_%04D_diff.exr",
+        "wild_name": "tex_????_diff"
+      },
+      "input": "tex_%04D_diff.exr"
+    },
+    {
+      "expected": {
+        "absname": "tex",
+        "basename": "tex.#.exr",
+        "dirname": "",
+        "ext": "exr",
+        "filename": "tex.#.exr",
+        "name": "tex.",
+        "other_pattern": null,
+        "padding": 1,
+        "pattern": "#",
+        "repr": "name='tex.', pattern='#', ext='exr', absname='tex', padding=1, wild_name='tex.?'",
+        "str": "name='tex.', pattern='#', ext='exr', absname='tex', padding=1, wild_name='tex.?'",
+        "template": "tex.#.exr",
+        "wild_name": "tex.?"
+      },
+      "input": "tex.#.exr"
+    },
+    {
+      "expected": {
+        "absname": "tex_diff",
+        "basename": "tex_#_diff.exr",
+        "dirname": "",
+        "ext": "exr",
+        "filename": "tex_#_diff.exr",
+        "name": "tex_diff",
+        "other_pattern": null,
+        "padding": 1,
+        "pattern": "#",
+        "repr": "name='tex_diff', pattern='#', ext='exr', absname='tex_diff', padding=1, wild_name='tex_?_diff'",
+        "str": "name='tex_diff', pattern='#', ext='exr', absname='tex_diff', padding=1, wild_name='tex_?_diff'",
+        "template": "tex_#_diff.exr",
+        "wild_name": "tex_?_diff"
+      },
+      "input": "tex_#_diff.exr"
+    },
+    {
+      "expected": {
+        "absname": "tex",
+        "basename": "tex.####.exr",
+        "dirname": "",
+        "ext": "exr",
+        "filename": "tex.####.exr",
+        "name": "tex.",
+        "other_pattern": null,
+        "padding": 4,
+        "pattern": "####",
+        "repr": "name='tex.', pattern='####', ext='exr', absname='tex', padding=4, wild_name='tex.????'",
+        "str": "name='tex.', pattern='####', ext='exr', absname='tex', padding=4, wild_name='tex.????'",
+        "template": "tex.####.exr",
+        "wild_name": "tex.????"
+      },
+      "input": "tex.####.exr"
+    },
+    {
+      "expected": {
+        "absname": "tex_diff",
+        "basename": "tex_####_diff.exr",
+        "dirname": "",
+        "ext": "exr",
+        "filename": "tex_####_diff.exr",
+        "name": "tex_diff",
+        "other_pattern": null,
+        "padding": 4,
+        "pattern": "####",
+        "repr": "name='tex_diff', pattern='####', ext='exr', absname='tex_diff', padding=4, wild_name='tex_????_diff'",
+        "str": "name='tex_diff', pattern='####', ext='exr', absname='tex_diff', padding=4, wild_name='tex_????_diff'",
+        "template": "tex_####_diff.exr",
+        "wild_name": "tex_????_diff"
+      },
+      "input": "tex_####_diff.exr"
+    },
+    {
+      "expected": {
+        "absname": "tex",
+        "basename": "tex.$F.exr",
+        "dirname": "",
+        "ext": "exr",
+        "filename": "tex.$F.exr",
+        "name": "tex.",
+        "other_pattern": null,
+        "padding": 0,
+        "pattern": "$F",
+        "repr": "name='tex.', pattern='$F', ext='exr', absname='tex', padding=0, wild_name='tex.$F'",
+        "str": "name='tex.', pattern='$F', ext='exr', absname='tex', padding=0, wild_name='tex.$F'",
+        "template": "tex.$F.exr",
+        "wild_name": "tex.$F"
+      },
+      "input": "tex.$F.exr"
+    },
+    {
+      "expected": {
+        "absname": "tex_diff",
+        "basename": "tex_$F_diff.exr",
+        "dirname": "",
+        "ext": "exr",
+        "filename": "tex_$F_diff.exr",
+        "name": "tex_diff",
+        "other_pattern": null,
+        "padding": 0,
+        "pattern": "$F",
+        "repr": "name='tex_diff', pattern='$F', ext='exr', absname='tex_diff', padding=0, wild_name='tex_$F_diff'",
+        "str": "name='tex_diff', pattern='$F', ext='exr', absname='tex_diff', padding=0, wild_name='tex_$F_diff'",
+        "template": "tex_$F_diff.exr",
+        "wild_name": "tex_$F_diff"
+      },
+      "input": "tex_$F_diff.exr"
+    },
+    {
+      "expected": {
+        "absname": "tex",
+        "basename": "tex.$F0.exr",
+        "dirname": "",
+        "ext": "exr",
+        "filename": "tex.$F0.exr",
+        "name": "tex.",
+        "other_pattern": null,
+        "padding": 0,
+        "pattern": "$F0",
+        "repr": "name='tex.', pattern='$F0', ext='exr', absname='tex', padding=0, wild_name='tex.$F0'",
+        "str": "name='tex.', pattern='$F0', ext='exr', absname='tex', padding=0, wild_name='tex.$F0'",
+        "template": "tex.$F0.exr",
+        "wild_name": "tex.$F0"
+      },
+      "input": "tex.$F0.exr"
+    },
+    {
+      "expected": {
+        "absname": "tex_diff",
+        "basename": "tex_$F0_diff.exr",
+        "dirname": "",
+        "ext": "exr",
+        "filename": "tex_$F0_diff.exr",
+        "name": "tex_diff",
+        "other_pattern": null,
+        "padding": 0,
+        "pattern": "$F0",
+        "repr": "name='tex_diff', pattern='$F0', ext='exr', absname='tex_diff', padding=0, wild_name='tex_$F0_diff'",
+        "str": "name='tex_diff', pattern='$F0', ext='exr', absname='tex_diff', padding=0, wild_name='tex_$F0_diff'",
+        "template": "tex_$F0_diff.exr",
+        "wild_name": "tex_$F0_diff"
+      },
+      "input": "tex_$F0_diff.exr"
+    },
+    {
+      "expected": {
+        "absname": "tex",
+        "basename": "tex.$F4.exr",
+        "dirname": "",
+        "ext": "exr",
+        "filename": "tex.$F4.exr",
+        "name": "tex.",
+        "other_pattern": null,
+        "padding": 4,
+        "pattern": "$F4",
+        "repr": "name='tex.', pattern='$F4', ext='exr', absname='tex', padding=4, wild_name='tex.????'",
+        "str": "name='tex.', pattern='$F4', ext='exr', absname='tex', padding=4, wild_name='tex.????'",
+        "template": "tex.$F4.exr",
+        "wild_name": "tex.????"
+      },
+      "input": "tex.$F4.exr"
+    },
+    {
+      "expected": {
+        "absname": "tex_diff",
+        "basename": "tex_$F4_diff.exr",
+        "dirname": "",
+        "ext": "exr",
+        "filename": "tex_$F4_diff.exr",
+        "name": "tex_diff",
+        "other_pattern": null,
+        "padding": 4,
+        "pattern": "$F4",
+        "repr": "name='tex_diff', pattern='$F4', ext='exr', absname='tex_diff', padding=4, wild_name='tex_????_diff'",
+        "str": "name='tex_diff', pattern='$F4', ext='exr', absname='tex_diff', padding=4, wild_name='tex_????_diff'",
+        "template": "tex_$F4_diff.exr",
+        "wild_name": "tex_????_diff"
+      },
+      "input": "tex_$F4_diff.exr"
+    },
+    {
+      "expected": {
+        "absname": "tex",
+        "basename": "tex.$f4.exr",
+        "dirname": "",
+        "ext": "exr",
+        "filename": "tex.$f4.exr",
+        "name": "tex.",
+        "other_pattern": null,
+        "padding": 4,
+        "pattern": "$f4",
+        "repr": "name='tex.', pattern='$f4', ext='exr', absname='tex', padding=4, wild_name='tex.????'",
+        "str": "name='tex.', pattern='$f4', ext='exr', absname='tex', padding=4, wild_name='tex.????'",
+        "template": "tex.$f4.exr",
+        "wild_name": "tex.????"
+      },
+      "input": "tex.$f4.exr"
+    },
+    {
+      "expected": {
+        "absname": "tex_diff",
+        "basename": "tex_$f4_diff.exr",
+        "dirname": "",
+        "ext": "exr",
+        "filename": "tex_$f4_diff.exr",
+        "name": "tex_diff",
+        "other_pattern": null,
+        "padding": 4,
+        "pattern": "$f4",
+        "repr": "name='tex_diff', pattern='$f4', ext='exr', absname='tex_diff', padding=4, wild_name='tex_????_diff'",
+        "str": "name='tex_diff', pattern='$f4', ext='exr', absname='tex_diff', padding=4, wild_name='tex_????_diff'",
+        "template": "tex_$f4_diff.exr",
+        "wild_name": "tex_????_diff"
+      },
+      "input": "tex_$f4_diff.exr"
+    },
+    {
+      "expected": {
+        "absname": "tex",
+        "basename": "tex.<UDIM>.exr",
+        "dirname": "",
+        "ext": "exr",
+        "filename": "tex.<UDIM>.exr",
+        "name": "tex.",
+        "other_pattern": null,
+        "padding": 4,
+        "pattern": "<UDIM>",
+        "repr": "name='tex.', pattern='<UDIM>', ext='exr', absname='tex', padding=4, wild_name='tex.????'",
+        "str": "name='tex.', pattern='<UDIM>', ext='exr', absname='tex', padding=4, wild_name='tex.????'",
+        "template": "tex.<UDIM>.exr",
+        "wild_name": "tex.????"
+      },
+      "input": "tex.<UDIM>.exr"
+    },
+    {
+      "expected": {
+        "absname": "tex_diff",
+        "basename": "tex_<UDIM>_diff.exr",
+        "dirname": "",
+        "ext": "exr",
+        "filename": "tex_<UDIM>_diff.exr",
+        "name": "tex_diff",
+        "other_pattern": null,
+        "padding": 4,
+        "pattern": "<UDIM>",
+        "repr": "name='tex_diff', pattern='<UDIM>', ext='exr', absname='tex_diff', padding=4, wild_name='tex_????_diff'",
+        "str": "name='tex_diff', pattern='<UDIM>', ext='exr', absname='tex_diff', padding=4, wild_name='tex_????_diff'",
+        "template": "tex_<UDIM>_diff.exr",
+        "wild_name": "tex_????_diff"
+      },
+      "input": "tex_<UDIM>_diff.exr"
+    },
+    {
+      "expected": {
+        "absname": "tex",
+        "basename": "tex.<udim>.exr",
+        "dirname": "",
+        "ext": "exr",
+        "filename": "tex.<udim>.exr",
+        "name": "tex.",
+        "other_pattern": null,
+        "padding": 4,
+        "pattern": "<udim>",
+        "repr": "name='tex.', pattern='<udim>', ext='exr', absname='tex', padding=4, wild_name='tex.????'",
+        "str": "name='tex.', pattern='<udim>', ext='exr', absname='tex', padding=4, wild_name='tex.????'",
+        "template": "tex.<UDIM>.exr",
+        "wild_name": "tex.????"
+      },
+      "input": "tex.<udim>.exr"
+    },
+    {
+      "expected": {
+        "absname": "tex_diff",
+        "basename": "tex_<udim>_diff.exr",
+        "dirname": "",
+        "ext": "exr",
+        "filename": "tex_<udim>_diff.exr",
+        "name": "tex_diff",
+        "other_pattern": null,
+        "padding": 4,
+        "pattern": "<udim>",
+        "repr": "name='tex_diff', pattern='<udim>', ext='exr', absname='tex_diff', padding=4, wild_name='tex_????_diff'",
+        "str": "name='tex_diff', pattern='<udim>', ext='exr', absname='tex_diff', padding=4, wild_name='tex_????_diff'",
+        "template": "tex_<UDIM>_diff.exr",
+        "wild_name": "tex_????_diff"
+      },
+      "input": "tex_<udim>_diff.exr"
+    },
+    {
+      "expected": {
+        "absname": "tex",
+        "basename": "tex.%(UDIM)d.exr",
+        "dirname": "",
+        "ext": "exr",
+        "filename": "tex.%(UDIM)d.exr",
+        "name": "tex.",
+        "other_pattern": null,
+        "padding": 4,
+        "pattern": "%(UDIM)d",
+        "repr": "name='tex.', pattern='%(UDIM)d', ext='exr', absname='tex', padding=4, wild_name='tex.????'",
+        "str": "name='tex.', pattern='%(UDIM)d', ext='exr', absname='tex', padding=4, wild_name='tex.????'",
+        "template": "tex.<UDIM>.exr",
+        "wild_name": "tex.????"
+      },
+      "input": "tex.%(UDIM)d.exr"
+    },
+    {
+      "expected": {
+        "absname": "tex_diff",
+        "basename": "tex_%(UDIM)d_diff.exr",
+        "dirname": "",
+        "ext": "exr",
+        "filename": "tex_%(UDIM)d_diff.exr",
+        "name": "tex_diff",
+        "other_pattern": null,
+        "padding": 4,
+        "pattern": "%(UDIM)d",
+        "repr": "name='tex_diff', pattern='%(UDIM)d', ext='exr', absname='tex_diff', padding=4, wild_name='tex_????_diff'",
+        "str": "name='tex_diff', pattern='%(UDIM)d', ext='exr', absname='tex_diff', padding=4, wild_name='tex_????_diff'",
+        "template": "tex_<UDIM>_diff.exr",
+        "wild_name": "tex_????_diff"
+      },
+      "input": "tex_%(UDIM)d_diff.exr"
+    },
+    {
+      "expected": {
+        "absname": "tex",
+        "basename": "tex.%(udim)d.exr",
+        "dirname": "",
+        "ext": "exr",
+        "filename": "tex.%(udim)d.exr",
+        "name": "tex.",
+        "other_pattern": null,
+        "padding": 4,
+        "pattern": "%(udim)d",
+        "repr": "name='tex.', pattern='%(udim)d', ext='exr', absname='tex', padding=4, wild_name='tex.????'",
+        "str": "name='tex.', pattern='%(udim)d', ext='exr', absname='tex', padding=4, wild_name='tex.????'",
+        "template": "tex.<UDIM>.exr",
+        "wild_name": "tex.????"
+      },
+      "input": "tex.%(udim)d.exr"
+    },
+    {
+      "expected": {
+        "absname": "tex_diff",
+        "basename": "tex_%(udim)d_diff.exr",
+        "dirname": "",
+        "ext": "exr",
+        "filename": "tex_%(udim)d_diff.exr",
+        "name": "tex_diff",
+        "other_pattern": null,
+        "padding": 4,
+        "pattern": "%(udim)d",
+        "repr": "name='tex_diff', pattern='%(udim)d', ext='exr', absname='tex_diff', padding=4, wild_name='tex_????_diff'",
+        "str": "name='tex_diff', pattern='%(udim)d', ext='exr', absname='tex_diff', padding=4, wild_name='tex_????_diff'",
+        "template": "tex_<UDIM>_diff.exr",
+        "wild_name": "tex_????_diff"
+      },
+      "input": "tex_%(udim)d_diff.exr"
+    },
+    {
+      "expected": {
+        "absname": "tex",
+        "basename": "tex.u<U>_v<V>.exr",
+        "dirname": "",
+        "ext": "exr",
+        "filename": "tex.u<U>_v<V>.exr",
+        "name": "tex.",
+        "other_pattern": null,
+        "padding": 0,
+        "pattern": "u<U>_v<V>",
+        "repr": "name='tex.', pattern='u<U>_v<V>', ext='exr', absname='tex', padding=0, wild_name='tex.u?_v?'",
+        "str": "name='tex.', pattern='u<U>_v<V>', ext='exr', absname='tex', padding=0, wild_name='tex.u?_v?'",
+        "template": "tex.u<U>_v<V>.exr",
+        "wild_name": "tex.u?_v?"
+      },
+      "input": "tex.u<U>_v<V>.exr"
+    },
+    {
+      "expected": {
+        "absname": "tex_diff",
+        "basename": "tex_u<U>_v<V>_diff.exr",
+        "dirname": "",
+        "ext": "exr",
+        "filename": "tex_u<U>_v<V>_diff.exr",
+        "name": "tex_diff",
+        "other_pattern": null,
+        "padding": 0,
+        "pattern": "u<U>_v<V>",
+        "repr": "name='tex_diff', pattern='u<U>_v<V>', ext='exr', absname='tex_diff', padding=0, wild_name='tex_u?_v?_diff'",
+        "str": "name='tex_diff', pattern='u<U>_v<V>', ext='exr', absname='tex_diff', padding=0, wild_name='tex_u?_v?_diff'",
+        "template": "tex_u<U>_v<V>_diff.exr",
+        "wild_name": "tex_u?_v?_diff"
+      },
+      "input": "tex_u<U>_v<V>_diff.exr"
+    },
+    {
+      "expected": {
+        "absname": "tex",
+        "basename": "tex.U<U>_V<V>.exr",
+        "dirname": "",
+        "ext": "exr",
+        "filename": "tex.U<U>_V<V>.exr",
+        "name": "tex.",
+        "other_pattern": null,
+        "padding": 0,
+        "pattern": "U<U>_V<V>",
+        "repr": "name='tex.', pattern='U<U>_V<V>', ext='exr', absname='tex', padding=0, wild_name='tex.U?_V?'",
+        "str": "name='tex.', pattern='U<U>_V<V>', ext='exr', absname='tex', padding=0, wild_name='tex.U?_V?'",
+        "template": "tex.U<U>_V<V>.exr",
+        "wild_name": "tex.U?_V?"
+      },
+      "input": "tex.U<U>_V<V>.exr"
+    },
+    {
+      "expected": {
+        "absname": "tex_diff",
+        "basename": "tex_U<U>_V<V>_diff.exr",
+        "dirname": "",
+        "ext": "exr",
+        "filename": "tex_U<U>_V<V>_diff.exr",
+        "name": "tex_diff",
+        "other_pattern": null,
+        "padding": 0,
+        "pattern": "U<U>_V<V>",
+        "repr": "name='tex_diff', pattern='U<U>_V<V>', ext='exr', absname='tex_diff', padding=0, wild_name='tex_U?_V?_diff'",
+        "str": "name='tex_diff', pattern='U<U>_V<V>', ext='exr', absname='tex_diff', padding=0, wild_name='tex_U?_V?_diff'",
+        "template": "tex_U<U>_V<V>_diff.exr",
+        "wild_name": "tex_U?_V?_diff"
+      },
+      "input": "tex_U<U>_V<V>_diff.exr"
+    },
+    {
+      "expected": {
+        "absname": "shot",
+        "basename": "shot.1001.bgeo.sc",
+        "dirname": "",
+        "ext": "bgeo.sc",
+        "filename": "shot.1001.bgeo.sc",
+        "name": "shot.",
+        "other_pattern": null,
+        "padding": 4,
+        "pattern": "1001",
+        "repr": "name='shot.', pattern='1001', ext='bgeo.sc', absname='shot', padding=4, wild_name='shot.????'",
+        "str": "name='shot.', pattern='1001', ext='bgeo.sc', absname='shot', padding=4, wild_name='shot.????'",
+        "template": "shot.%04d.bgeo.sc",
+        "wild_name": "shot.????"
+      },
+      "input": "shot.1001.bgeo.sc"
+    },
+    {
+      "expected": {
+        "absname": "shot",
+        "basename": "shot.1001.BGEO.SC",
+        "dirname": "",
+        "ext": "bgeo.sc",
+        "filename": "shot.1001.BGEO.SC",
+        "name": "shot.",
+        "other_pattern": null,
+        "padding": 4,
+        "pattern": "1001",
+        "repr": "name='shot.', pattern='1001', ext='bgeo.sc', absname='shot', padding=4, wild_name='shot.????'",
+        "str": "name='shot.', pattern='1001', ext='bgeo.sc', absname='shot', padding=4, wild_name='shot.????'",
+        "template": "shot.%04d.BGEO.SC",
+        "wild_name": "shot.????"
+      },
+      "input": "shot.1001.BGEO.SC"
+    },
+    {
+      "expected": {
+        "absname": "shot",
+        "basename": "shot.1001.bgeo.gz",
+        "dirname": "",
+        "ext": "bgeo.gz",
+        "filename": "shot.1001.bgeo.gz",
+        "name": "shot.",
+        "other_pattern": null,
+        "padding": 4,
+        "pattern": "1001",
+        "repr": "name='shot.', pattern='1001', ext='bgeo.gz', absname='shot', padding=4, wild_name='shot.????'",
+        "str": "name='shot.', pattern='1001', ext='bgeo.gz', absname='shot', padding=4, wild_name='shot.????'",
+        "template": "shot.%04d.bgeo.gz",
+        "wild_name": "shot.????"
+      },
+      "input": "shot.1001.bgeo.gz"
+    },
+    {
+      "expected": {
+        "absname": "shot",
+        "basename": "shot.1001.BGEO.GZ",
+        "dirname": "",
+        "ext": "bgeo.gz",
+        "filename": "shot.1001.BGEO.GZ",
+        "name": "shot.",
+        "other_pattern": null,
+        "padding": 4,
+        "pattern": "1001",
+        "repr": "name='shot.', pattern='1001', ext='bgeo.gz', absname='shot', padding=4, wild_name='shot.????'",
+        "str": "name='shot.', pattern='1001', ext='bgeo.gz', absname='shot', padding=4, wild_name='shot.????'",
+        "template": "shot.%04d.BGEO.GZ",
+        "wild_name": "shot.????"
+      },
+      "input": "shot.1001.BGEO.GZ"
+    },
+    {
+      "expected": {
+        "absname": "shot",
+        "basename": "shot.1001.ass.gz",
+        "dirname": "",
+        "ext": "ass.gz",
+        "filename": "shot.1001.ass.gz",
+        "name": "shot.",
+        "other_pattern": null,
+        "padding": 4,
+        "pattern": "1001",
+        "repr": "name='shot.', pattern='1001', ext='ass.gz', absname='shot', padding=4, wild_name='shot.????'",
+        "str": "name='shot.', pattern='1001', ext='ass.gz', absname='shot', padding=4, wild_name='shot.????'",
+        "template": "shot.%04d.ass.gz",
+        "wild_name": "shot.????"
+      },
+      "input": "shot.1001.ass.gz"
+    },
+    {
+      "expected": {
+        "absname": "shot",
+        "basename": "shot.1001.ASS.GZ",
+        "dirname": "",
+        "ext": "ass.gz",
+        "filename": "shot.1001.ASS.GZ",
+        "name": "shot.",
+        "other_pattern": null,
+        "padding": 4,
+        "pattern": "1001",
+        "repr": "name='shot.', pattern='1001', ext='ass.gz', absname='shot', padding=4, wild_name='shot.????'",
+        "str": "name='shot.', pattern='1001', ext='ass.gz', absname='shot', padding=4, wild_name='shot.????'",
+        "template": "shot.%04d.ASS.GZ",
+        "wild_name": "shot.????"
+      },
+      "input": "shot.1001.ASS.GZ"
+    },
+    {
+      "expected": {
+        "absname": "shot",
+        "basename": "shot.1001.vdb.sc",
+        "dirname": "",
+        "ext": "vdb.sc",
+        "filename": "shot.1001.vdb.sc",
+        "name": "shot.",
+        "other_pattern": null,
+        "padding": 4,
+        "pattern": "1001",
+        "repr": "name='shot.', pattern='1001', ext='vdb.sc', absname='shot', padding=4, wild_name='shot.????'",
+        "str": "name='shot.', pattern='1001', ext='vdb.sc', absname='shot', padding=4, wild_name='shot.????'",
+        "template": "shot.%04d.vdb.sc",
+        "wild_name": "shot.????"
+      },
+      "input": "shot.1001.vdb.sc"
+    },
+    {
+      "expected": {
+        "absname": "shot",
+        "basename": "shot.1001.VDB.SC",
+        "dirname": "",
+        "ext": "vdb.sc",
+        "filename": "shot.1001.VDB.SC",
+        "name": "shot.",
+        "other_pattern": null,
+        "padding": 4,
+        "pattern": "1001",
+        "repr": "name='shot.', pattern='1001', ext='vdb.sc', absname='shot', padding=4, wild_name='shot.????'",
+        "str": "name='shot.', pattern='1001', ext='vdb.sc', absname='shot', padding=4, wild_name='shot.????'",
+        "template": "shot.%04d.VDB.SC",
+        "wild_name": "shot.????"
+      },
+      "input": "shot.1001.VDB.SC"
+    },
+    {
+      "expected": {
+        "absname": "shot",
+        "basename": "shot.1001.vdb.gz",
+        "dirname": "",
+        "ext": "vdb.gz",
+        "filename": "shot.1001.vdb.gz",
+        "name": "shot.",
+        "other_pattern": null,
+        "padding": 4,
+        "pattern": "1001",
+        "repr": "name='shot.', pattern='1001', ext='vdb.gz', absname='shot', padding=4, wild_name='shot.????'",
+        "str": "name='shot.', pattern='1001', ext='vdb.gz', absname='shot', padding=4, wild_name='shot.????'",
+        "template": "shot.%04d.vdb.gz",
+        "wild_name": "shot.????"
+      },
+      "input": "shot.1001.vdb.gz"
+    },
+    {
+      "expected": {
+        "absname": "shot",
+        "basename": "shot.1001.VDB.GZ",
+        "dirname": "",
+        "ext": "vdb.gz",
+        "filename": "shot.1001.VDB.GZ",
+        "name": "shot.",
+        "other_pattern": null,
+        "padding": 4,
+        "pattern": "1001",
+        "repr": "name='shot.', pattern='1001', ext='vdb.gz', absname='shot', padding=4, wild_name='shot.????'",
+        "str": "name='shot.', pattern='1001', ext='vdb.gz', absname='shot', padding=4, wild_name='shot.????'",
+        "template": "shot.%04d.VDB.GZ",
+        "wild_name": "shot.????"
+      },
+      "input": "shot.1001.VDB.GZ"
+    },
+    {
+      "expected": {
+        "absname": "shot",
+        "basename": "shot.1001.tar.gz",
+        "dirname": "",
+        "ext": "tar.gz",
+        "filename": "shot.1001.tar.gz",
+        "name": "shot.",
+        "other_pattern": null,
+        "padding": 4,
+        "pattern": "1001",
+        "repr": "name='shot.', pattern='1001', ext='tar.gz', absname='shot', padding=4, wild_name='shot.????'",
+        "str": "name='shot.', pattern='1001', ext='tar.gz', absname='shot', padding=4, wild_name='shot.????'",
+        "template": "shot.%04d.tar.gz",
+        "wild_name": "shot.????"
+      },
+      "input": "shot.1001.tar.gz"
+    },
+    {
+      "expected": {
+        "absname": "shot",
+        "basename": "shot.1001.TAR.GZ",
+        "dirname": "",
+        "ext": "tar.gz",
+        "filename": "shot.1001.TAR.GZ",
+        "name": "shot.",
+        "other_pattern": null,
+        "padding": 4,
+        "pattern": "1001",
+        "repr": "name='shot.', pattern='1001', ext='tar.gz', absname='shot', padding=4, wild_name='shot.????'",
+        "str": "name='shot.', pattern='1001', ext='tar.gz', absname='shot', padding=4, wild_name='shot.????'",
+        "template": "shot.%04d.TAR.GZ",
+        "wild_name": "shot.????"
+      },
+      "input": "shot.1001.TAR.GZ"
+    },
+    {
+      "expected": {
+        "absname": "shot.1001",
+        "basename": "shot.1001.mp4",
+        "dirname": "",
+        "ext": "mp4",
+        "filename": "shot.1001.mp4",
+        "name": "shot.1001",
+        "other_pattern": null,
+        "padding": 0,
+        "pattern": "",
+        "repr": "name='shot.1001', pattern='', ext='mp4', absname='shot.1001', padding=0, wild_name='shot.1001'",
+        "str": "name='shot.1001', pattern='', ext='mp4', absname='shot.1001', padding=0, wild_name='shot.1001'",
+        "template": "shot.1001.mp4",
+        "wild_name": "shot.1001"
+      },
+      "input": "shot.1001.mp4"
+    },
+    {
+      "expected": {
+        "absname": "shot.1001",
+        "basename": "shot.1001.MP4",
+        "dirname": "",
+        "ext": "mp4",
+        "filename": "shot.1001.MP4",
+        "name": "shot.1001",
+        "other_pattern": null,
+        "padding": 0,
+        "pattern": "",
+        "repr": "name='shot.1001', pattern='', ext='mp4', absname='shot.1001', padding=0, wild_name='shot.1001'",
+        "str": "name='shot.1001', pattern='', ext='mp4', absname='shot.1001', padding=0, wild_name='shot.1001'",
+        "template": "shot.1001.MP4",
+        "wild_name": "shot.1001"
+      },
+      "input": "shot.1001.MP4"
+    },
+    {
+      "expected": {
+        "absname": "shot.1001",
+        "basename": "shot.1001.mov",
+        "dirname": "",
+        "ext": "mov",
+        "filename": "shot.1001.mov",
+        "name": "shot.1001",
+        "other_pattern": null,
+        "padding": 0,
+        "pattern": "",
+        "repr": "name='shot.1001', pattern='', ext='mov', absname='shot.1001', padding=0, wild_name='shot.1001'",
+        "str": "name='shot.1001', pattern='', ext='mov', absname='shot.1001', padding=0, wild_name='shot.1001'",
+        "template": "shot.1001.mov",
+        "wild_name": "shot.1001"
+      },
+      "input": "shot.1001.mov"
+    },
+    {
+      "expected": {
+        "absname": "shot.1001",
+        "basename": "shot.1001.MOV",
+        "dirname": "",
+        "ext": "mov",
+        "filename": "shot.1001.MOV",
+        "name": "shot.1001",
+        "other_pattern": null,
+        "padding": 0,
+        "pattern": "",
+        "repr": "name='shot.1001', pattern='', ext='mov', absname='shot.1001', padding=0, wild_name='shot.1001'",
+        "str": "name='shot.1001', pattern='', ext='mov', absname='shot.1001', padding=0, wild_name='shot.1001'",
+        "template": "shot.1001.MOV",
+        "wild_name": "shot.1001"
+      },
+      "input": "shot.1001.MOV"
+    },
+    {
+      "expected": {
+        "absname": "shot.1001",
+        "basename": "shot.1001.avi",
+        "dirname": "",
+        "ext": "avi",
+        "filename": "shot.1001.avi",
+        "name": "shot.1001",
+        "other_pattern": null,
+        "padding": 0,
+        "pattern": "",
+        "repr": "name='shot.1001', pattern='', ext='avi', absname='shot.1001', padding=0, wild_name='shot.1001'",
+        "str": "name='shot.1001', pattern='', ext='avi', absname='shot.1001', padding=0, wild_name='shot.1001'",
+        "template": "shot.1001.avi",
+        "wild_name": "shot.1001"
+      },
+      "input": "shot.1001.avi"
+    },
+    {
+      "expected": {
+        "absname": "shot.1001",
+        "basename": "shot.1001.AVI",
+        "dirname": "",
+        "ext": "avi",
+        "filename": "shot.1001.AVI",
+        "name": "shot.1001",
+        "other_pattern": null,
+        "padding": 0,
+        "pattern": "",
+        "repr": "name='shot.1001', pattern='', ext='avi', absname='shot.1001', padding=0, wild_name='shot.1001'",
+        "str": "name='shot.1001', pattern='', ext='avi', absname='shot.1001', padding=0, wild_name='shot.1001'",
+        "template": "shot.1001.AVI",
+        "wild_name": "shot.1001"
+      },
+      "input": "shot.1001.AVI"
+    },
+    {
+      "expected": {
+        "absname": "shot.1001",
+        "basename": "shot.1001.mkv",
+        "dirname": "",
+        "ext": "mkv",
+        "filename": "shot.1001.mkv",
+        "name": "shot.1001",
+        "other_pattern": null,
+        "padding": 0,
+        "pattern": "",
+        "repr": "name='shot.1001', pattern='', ext='mkv', absname='shot.1001', padding=0, wild_name='shot.1001'",
+        "str": "name='shot.1001', pattern='', ext='mkv', absname='shot.1001', padding=0, wild_name='shot.1001'",
+        "template": "shot.1001.mkv",
+        "wild_name": "shot.1001"
+      },
+      "input": "shot.1001.mkv"
+    },
+    {
+      "expected": {
+        "absname": "shot.1001",
+        "basename": "shot.1001.MKV",
+        "dirname": "",
+        "ext": "mkv",
+        "filename": "shot.1001.MKV",
+        "name": "shot.1001",
+        "other_pattern": null,
+        "padding": 0,
+        "pattern": "",
+        "repr": "name='shot.1001', pattern='', ext='mkv', absname='shot.1001', padding=0, wild_name='shot.1001'",
+        "str": "name='shot.1001', pattern='', ext='mkv', absname='shot.1001', padding=0, wild_name='shot.1001'",
+        "template": "shot.1001.MKV",
+        "wild_name": "shot.1001"
+      },
+      "input": "shot.1001.MKV"
+    },
+    {
+      "expected": {
+        "absname": "shot.1001",
+        "basename": "shot.1001.webm",
+        "dirname": "",
+        "ext": "webm",
+        "filename": "shot.1001.webm",
+        "name": "shot.1001",
+        "other_pattern": null,
+        "padding": 0,
+        "pattern": "",
+        "repr": "name='shot.1001', pattern='', ext='webm', absname='shot.1001', padding=0, wild_name='shot.1001'",
+        "str": "name='shot.1001', pattern='', ext='webm', absname='shot.1001', padding=0, wild_name='shot.1001'",
+        "template": "shot.1001.webm",
+        "wild_name": "shot.1001"
+      },
+      "input": "shot.1001.webm"
+    },
+    {
+      "expected": {
+        "absname": "shot.1001",
+        "basename": "shot.1001.WEBM",
+        "dirname": "",
+        "ext": "webm",
+        "filename": "shot.1001.WEBM",
+        "name": "shot.1001",
+        "other_pattern": null,
+        "padding": 0,
+        "pattern": "",
+        "repr": "name='shot.1001', pattern='', ext='webm', absname='shot.1001', padding=0, wild_name='shot.1001'",
+        "str": "name='shot.1001', pattern='', ext='webm', absname='shot.1001', padding=0, wild_name='shot.1001'",
+        "template": "shot.1001.WEBM",
+        "wild_name": "shot.1001"
+      },
+      "input": "shot.1001.WEBM"
+    },
+    {
+      "expected": {
+        "absname": "shot",
+        "basename": "shot.1001.exr",
+        "dirname": "",
+        "ext": "exr",
+        "filename": "shot.1001.exr",
+        "name": "shot.",
+        "other_pattern": null,
+        "padding": 4,
+        "pattern": "1001",
+        "repr": "name='shot.', pattern='1001', ext='exr', absname='shot', padding=4, wild_name='shot.????'",
+        "str": "name='shot.', pattern='1001', ext='exr', absname='shot', padding=4, wild_name='shot.????'",
+        "template": "shot.%04d.exr",
+        "wild_name": "shot.????"
+      },
+      "input": "shot.1001.exr"
+    },
+    {
+      "expected": {
+        "absname": "shot",
+        "basename": "shot.1001.EXR",
+        "dirname": "",
+        "ext": "exr",
+        "filename": "shot.1001.EXR",
+        "name": "shot.",
+        "other_pattern": null,
+        "padding": 4,
+        "pattern": "1001",
+        "repr": "name='shot.', pattern='1001', ext='exr', absname='shot', padding=4, wild_name='shot.????'",
+        "str": "name='shot.', pattern='1001', ext='exr', absname='shot', padding=4, wild_name='shot.????'",
+        "template": "shot.%04d.EXR",
+        "wild_name": "shot.????"
+      },
+      "input": "shot.1001.EXR"
+    },
+    {
+      "expected": {
+        "absname": "shot",
+        "basename": "shot.1001.dpx",
+        "dirname": "",
+        "ext": "dpx",
+        "filename": "shot.1001.dpx",
+        "name": "shot.",
+        "other_pattern": null,
+        "padding": 4,
+        "pattern": "1001",
+        "repr": "name='shot.', pattern='1001', ext='dpx', absname='shot', padding=4, wild_name='shot.????'",
+        "str": "name='shot.', pattern='1001', ext='dpx', absname='shot', padding=4, wild_name='shot.????'",
+        "template": "shot.%04d.dpx",
+        "wild_name": "shot.????"
+      },
+      "input": "shot.1001.dpx"
+    },
+    {
+      "expected": {
+        "absname": "shot",
+        "basename": "shot.1001.DPX",
+        "dirname": "",
+        "ext": "dpx",
+        "filename": "shot.1001.DPX",
+        "name": "shot.",
+        "other_pattern": null,
+        "padding": 4,
+        "pattern": "1001",
+        "repr": "name='shot.', pattern='1001', ext='dpx', absname='shot', padding=4, wild_name='shot.????'",
+        "str": "name='shot.', pattern='1001', ext='dpx', absname='shot', padding=4, wild_name='shot.????'",
+        "template": "shot.%04d.DPX",
+        "wild_name": "shot.????"
+      },
+      "input": "shot.1001.DPX"
+    },
+    {
+      "expected": {
+        "absname": "shot",
+        "basename": "shot.1001.tif",
+        "dirname": "",
+        "ext": "tif",
+        "filename": "shot.1001.tif",
+        "name": "shot.",
+        "other_pattern": null,
+        "padding": 4,
+        "pattern": "1001",
+        "repr": "name='shot.', pattern='1001', ext='tif', absname='shot', padding=4, wild_name='shot.????'",
+        "str": "name='shot.', pattern='1001', ext='tif', absname='shot', padding=4, wild_name='shot.????'",
+        "template": "shot.%04d.tif",
+        "wild_name": "shot.????"
+      },
+      "input": "shot.1001.tif"
+    },
+    {
+      "expected": {
+        "absname": "shot",
+        "basename": "shot.1001.TIF",
+        "dirname": "",
+        "ext": "tif",
+        "filename": "shot.1001.TIF",
+        "name": "shot.",
+        "other_pattern": null,
+        "padding": 4,
+        "pattern": "1001",
+        "repr": "name='shot.', pattern='1001', ext='tif', absname='shot', padding=4, wild_name='shot.????'",
+        "str": "name='shot.', pattern='1001', ext='tif', absname='shot', padding=4, wild_name='shot.????'",
+        "template": "shot.%04d.TIF",
+        "wild_name": "shot.????"
+      },
+      "input": "shot.1001.TIF"
+    }
+  ],
+  "examples": [
+    {
+      "expected": {
+        "absname": "testA_diffuse",
+        "basename": "testA_diffuse.%04d.exr",
+        "dirname": "d:/render",
+        "ext": "exr",
+        "filename": "d:/render/testA_diffuse.%04d.exr",
+        "name": "testA_diffuse.",
+        "other_pattern": null,
+        "padding": 4,
+        "pattern": "%04d",
+        "repr": "name='testA_diffuse.', pattern='%04d', ext='exr', absname='testA_diffuse', padding=4, wild_name='testA_diffuse.????'",
+        "str": "name='testA_diffuse.', pattern='%04d', ext='exr', absname='testA_diffuse', padding=4, wild_name='testA_diffuse.????'",
+        "template": "d:/render/testA_diffuse.%04d.exr",
+        "wild_name": "testA_diffuse.????"
+      },
+      "input": "d:/render/testA_diffuse.%04d.exr"
+    },
+    {
+      "expected": {
+        "absname": "testA1001_diffuse",
+        "basename": "testA1001_diffuse.%04d.exr",
+        "dirname": "d:/render",
+        "ext": "exr",
+        "filename": "d:/render/testA1001_diffuse.%04d.exr",
+        "name": "testA1001_diffuse.",
+        "other_pattern": null,
+        "padding": 4,
+        "pattern": "%04d",
+        "repr": "name='testA1001_diffuse.', pattern='%04d', ext='exr', absname='testA1001_diffuse', padding=4, wild_name='testA1001_diffuse.????'",
+        "str": "name='testA1001_diffuse.', pattern='%04d', ext='exr', absname='testA1001_diffuse', padding=4, wild_name='testA1001_diffuse.????'",
+        "template": "d:/render/testA1001_diffuse.%04d.exr",
+        "wild_name": "testA1001_diffuse.????"
+      },
+      "input": "d:/render/testA1001_diffuse.%04d.exr"
+    },
+    {
+      "expected": {
+        "absname": "testA_diffuse",
+        "basename": "testA_diffuse%04d.exr",
+        "dirname": "d:/render",
+        "ext": "exr",
+        "filename": "d:/render/testA_diffuse%04d.exr",
+        "name": "testA_diffuse",
+        "other_pattern": null,
+        "padding": 4,
+        "pattern": "%04d",
+        "repr": "name='testA_diffuse', pattern='%04d', ext='exr', absname='testA_diffuse', padding=4, wild_name='testA_diffuse????'",
+        "str": "name='testA_diffuse', pattern='%04d', ext='exr', absname='testA_diffuse', padding=4, wild_name='testA_diffuse????'",
+        "template": "d:/render/testA_diffuse%04d.exr",
+        "wild_name": "testA_diffuse????"
+      },
+      "input": "d:/render/testA_diffuse%04d.exr"
+    },
+    {
+      "expected": {
+        "absname": "testA_diffuse_beauty",
+        "basename": "testA_diffuse_%04d_beauty.exr",
+        "dirname": "d:/render",
+        "ext": "exr",
+        "filename": "d:/render/testA_diffuse_%04d_beauty.exr",
+        "name": "testA_diffuse_beauty",
+        "other_pattern": null,
+        "padding": 4,
+        "pattern": "%04d",
+        "repr": "name='testA_diffuse_beauty', pattern='%04d', ext='exr', absname='testA_diffuse_beauty', padding=4, wild_name='testA_diffuse_????_beauty'",
+        "str": "name='testA_diffuse_beauty', pattern='%04d', ext='exr', absname='testA_diffuse_beauty', padding=4, wild_name='testA_diffuse_????_beauty'",
+        "template": "d:/render/testA_diffuse_%04d_beauty.exr",
+        "wild_name": "testA_diffuse_????_beauty"
+      },
+      "input": "d:/render/testA_diffuse_%04d_beauty.exr"
+    },
+    {
+      "expected": {
+        "absname": "testA_diffuse_beauty",
+        "basename": "testA_diffuse_####_beauty.exr",
+        "dirname": "d:/render",
+        "ext": "exr",
+        "filename": "d:/render/testA_diffuse_####_beauty.exr",
+        "name": "testA_diffuse_beauty",
+        "other_pattern": null,
+        "padding": 4,
+        "pattern": "####",
+        "repr": "name='testA_diffuse_beauty', pattern='####', ext='exr', absname='testA_diffuse_beauty', padding=4, wild_name='testA_diffuse_????_beauty'",
+        "str": "name='testA_diffuse_beauty', pattern='####', ext='exr', absname='testA_diffuse_beauty', padding=4, wild_name='testA_diffuse_????_beauty'",
+        "template": "d:/render/testA_diffuse_####_beauty.exr",
+        "wild_name": "testA_diffuse_????_beauty"
+      },
+      "input": "d:/render/testA_diffuse_####_beauty.exr"
+    },
+    {
+      "expected": {
+        "absname": "testA_diffuse",
+        "basename": "testA_diffuse.####.exr",
+        "dirname": "d:/render",
+        "ext": "exr",
+        "filename": "d:/render/testA_diffuse.####.exr",
+        "name": "testA_diffuse.",
+        "other_pattern": null,
+        "padding": 4,
+        "pattern": "####",
+        "repr": "name='testA_diffuse.', pattern='####', ext='exr', absname='testA_diffuse', padding=4, wild_name='testA_diffuse.????'",
+        "str": "name='testA_diffuse.', pattern='####', ext='exr', absname='testA_diffuse', padding=4, wild_name='testA_diffuse.????'",
+        "template": "d:/render/testA_diffuse.####.exr",
+        "wild_name": "testA_diffuse.????"
+      },
+      "input": "d:/render/testA_diffuse.####.exr"
+    },
+    {
+      "expected": {
+        "absname": "testA_diffuse",
+        "basename": "testA_diffuse####.exr",
+        "dirname": "d:/render",
+        "ext": "exr",
+        "filename": "d:/render/testA_diffuse####.exr",
+        "name": "testA_diffuse",
+        "other_pattern": null,
+        "padding": 4,
+        "pattern": "####",
+        "repr": "name='testA_diffuse', pattern='####', ext='exr', absname='testA_diffuse', padding=4, wild_name='testA_diffuse????'",
+        "str": "name='testA_diffuse', pattern='####', ext='exr', absname='testA_diffuse', padding=4, wild_name='testA_diffuse????'",
+        "template": "d:/render/testA_diffuse####.exr",
+        "wild_name": "testA_diffuse????"
+      },
+      "input": "d:/render/testA_diffuse####.exr"
+    },
+    {
+      "expected": {
+        "absname": "testA_diffuse_v0028",
+        "basename": "testA_diffuse_v0028.1001.exr",
+        "dirname": "d:/render",
+        "ext": "exr",
+        "filename": "d:/render/testA_diffuse_v0028.1001.exr",
+        "name": "testA_diffuse_v0028.",
+        "other_pattern": null,
+        "padding": 4,
+        "pattern": "1001",
+        "repr": "name='testA_diffuse_v0028.', pattern='1001', ext='exr', absname='testA_diffuse_v0028', padding=4, wild_name='testA_diffuse_v0028.????'",
+        "str": "name='testA_diffuse_v0028.', pattern='1001', ext='exr', absname='testA_diffuse_v0028', padding=4, wild_name='testA_diffuse_v0028.????'",
+        "template": "d:/render/testA_diffuse_v0028.%04d.exr",
+        "wild_name": "testA_diffuse_v0028.????"
+      },
+      "input": "d:/render/testA_diffuse_v0028.1001.exr"
+    },
+    {
+      "expected": {
+        "absname": "testA_diffuse",
+        "basename": "testA_diffuse1001.exr",
+        "dirname": "d:/render",
+        "ext": "exr",
+        "filename": "d:/render/testA_diffuse1001.exr",
+        "name": "testA_diffuse",
+        "other_pattern": null,
+        "padding": 4,
+        "pattern": "1001",
+        "repr": "name='testA_diffuse', pattern='1001', ext='exr', absname='testA_diffuse', padding=4, wild_name='testA_diffuse????'",
+        "str": "name='testA_diffuse', pattern='1001', ext='exr', absname='testA_diffuse', padding=4, wild_name='testA_diffuse????'",
+        "template": "d:/render/testA_diffuse%04d.exr",
+        "wild_name": "testA_diffuse????"
+      },
+      "input": "d:/render/testA_diffuse1001.exr"
+    },
+    {
+      "expected": {
+        "absname": "testA_diffuse",
+        "basename": "testA<UDIM>_diffuse.exr",
+        "dirname": "d:/render",
+        "ext": "exr",
+        "filename": "d:/render/testA<UDIM>_diffuse.exr",
+        "name": "testA_diffuse",
+        "other_pattern": null,
+        "padding": 4,
+        "pattern": "<UDIM>",
+        "repr": "name='testA_diffuse', pattern='<UDIM>', ext='exr', absname='testA_diffuse', padding=4, wild_name='testA????_diffuse'",
+        "str": "name='testA_diffuse', pattern='<UDIM>', ext='exr', absname='testA_diffuse', padding=4, wild_name='testA????_diffuse'",
+        "template": "d:/render/testA<UDIM>_diffuse.exr",
+        "wild_name": "testA????_diffuse"
+      },
+      "input": "d:/render/testA<UDIM>_diffuse.exr"
+    },
+    {
+      "expected": {
+        "absname": "testA_diffuse10",
+        "basename": "testA_diffuse10.<UDIM>.exr",
+        "dirname": "d:/render",
+        "ext": "exr",
+        "filename": "d:/render/testA_diffuse10.<UDIM>.exr",
+        "name": "testA_diffuse10.",
+        "other_pattern": null,
+        "padding": 4,
+        "pattern": "<UDIM>",
+        "repr": "name='testA_diffuse10.', pattern='<UDIM>', ext='exr', absname='testA_diffuse10', padding=4, wild_name='testA_diffuse10.????'",
+        "str": "name='testA_diffuse10.', pattern='<UDIM>', ext='exr', absname='testA_diffuse10', padding=4, wild_name='testA_diffuse10.????'",
+        "template": "d:/render/testA_diffuse10.<UDIM>.exr",
+        "wild_name": "testA_diffuse10.????"
+      },
+      "input": "d:/render/testA_diffuse10.<UDIM>.exr"
+    },
+    {
+      "expected": {
+        "absname": "testA_diffuse",
+        "basename": "testA_diffuse.%(UDIM)d.exr",
+        "dirname": "d:/render",
+        "ext": "exr",
+        "filename": "d:/render/testA_diffuse.%(UDIM)d.exr",
+        "name": "testA_diffuse.",
+        "other_pattern": null,
+        "padding": 4,
+        "pattern": "%(UDIM)d",
+        "repr": "name='testA_diffuse.', pattern='%(UDIM)d', ext='exr', absname='testA_diffuse', padding=4, wild_name='testA_diffuse.????'",
+        "str": "name='testA_diffuse.', pattern='%(UDIM)d', ext='exr', absname='testA_diffuse', padding=4, wild_name='testA_diffuse.????'",
+        "template": "d:/render/testA_diffuse.<UDIM>.exr",
+        "wild_name": "testA_diffuse.????"
+      },
+      "input": "d:/render/testA_diffuse.%(UDIM)d.exr"
+    },
+    {
+      "expected": {
+        "absname": "testA_diffuse",
+        "basename": "testA_diffuse%(UDIM)d.exr",
+        "dirname": "d:/render",
+        "ext": "exr",
+        "filename": "d:/render/testA_diffuse%(UDIM)d.exr",
+        "name": "testA_diffuse",
+        "other_pattern": null,
+        "padding": 4,
+        "pattern": "%(UDIM)d",
+        "repr": "name='testA_diffuse', pattern='%(UDIM)d', ext='exr', absname='testA_diffuse', padding=4, wild_name='testA_diffuse????'",
+        "str": "name='testA_diffuse', pattern='%(UDIM)d', ext='exr', absname='testA_diffuse', padding=4, wild_name='testA_diffuse????'",
+        "template": "d:/render/testA_diffuse<UDIM>.exr",
+        "wild_name": "testA_diffuse????"
+      },
+      "input": "d:/render/testA_diffuse%(UDIM)d.exr"
+    },
+    {
+      "expected": {
+        "absname": "testA_diffuse.abc",
+        "basename": "testA_diffuse.abc.$F4.exr",
+        "dirname": "d:/render",
+        "ext": "exr",
+        "filename": "d:/render/testA_diffuse.abc.$F4.exr",
+        "name": "testA_diffuse.abc.",
+        "other_pattern": null,
+        "padding": 4,
+        "pattern": "$F4",
+        "repr": "name='testA_diffuse.abc.', pattern='$F4', ext='exr', absname='testA_diffuse.abc', padding=4, wild_name='testA_diffuse.abc.????'",
+        "str": "name='testA_diffuse.abc.', pattern='$F4', ext='exr', absname='testA_diffuse.abc', padding=4, wild_name='testA_diffuse.abc.????'",
+        "template": "d:/render/testA_diffuse.abc.$F4.exr",
+        "wild_name": "testA_diffuse.abc.????"
+      },
+      "input": "d:/render/testA_diffuse.abc.$F4.exr"
+    },
+    {
+      "expected": {
+        "absname": "testA_diffuse.abc.layer",
+        "basename": "testA_diffuse.abc.layer.$F4.exr",
+        "dirname": "d:/render",
+        "ext": "exr",
+        "filename": "d:/render/testA_diffuse.abc.layer.$F4.exr",
+        "name": "testA_diffuse.abc.layer.",
+        "other_pattern": null,
+        "padding": 4,
+        "pattern": "$F4",
+        "repr": "name='testA_diffuse.abc.layer.', pattern='$F4', ext='exr', absname='testA_diffuse.abc.layer', padding=4, wild_name='testA_diffuse.abc.layer.????'",
+        "str": "name='testA_diffuse.abc.layer.', pattern='$F4', ext='exr', absname='testA_diffuse.abc.layer', padding=4, wild_name='testA_diffuse.abc.layer.????'",
+        "template": "d:/render/testA_diffuse.abc.layer.$F4.exr",
+        "wild_name": "testA_diffuse.abc.layer.????"
+      },
+      "input": "d:/render/testA_diffuse.abc.layer.$F4.exr"
+    },
+    {
+      "expected": {
+        "absname": "testA_diffuse",
+        "basename": "testA_diffuse.$F4.exr",
+        "dirname": "d:/render",
+        "ext": "exr",
+        "filename": "d:/render/testA_diffuse.$F4.exr",
+        "name": "testA_diffuse.",
+        "other_pattern": null,
+        "padding": 4,
+        "pattern": "$F4",
+        "repr": "name='testA_diffuse.', pattern='$F4', ext='exr', absname='testA_diffuse', padding=4, wild_name='testA_diffuse.????'",
+        "str": "name='testA_diffuse.', pattern='$F4', ext='exr', absname='testA_diffuse', padding=4, wild_name='testA_diffuse.????'",
+        "template": "d:/render/testA_diffuse.$F4.exr",
+        "wild_name": "testA_diffuse.????"
+      },
+      "input": "d:/render/testA_diffuse.$F4.exr"
+    },
+    {
+      "expected": {
+        "absname": "testA_diffuse",
+        "basename": "testA_$F4_diffuse.exr",
+        "dirname": "d:/render",
+        "ext": "exr",
+        "filename": "d:/render/testA_$F4_diffuse.exr",
+        "name": "testA_diffuse",
+        "other_pattern": null,
+        "padding": 4,
+        "pattern": "$F4",
+        "repr": "name='testA_diffuse', pattern='$F4', ext='exr', absname='testA_diffuse', padding=4, wild_name='testA_????_diffuse'",
+        "str": "name='testA_diffuse', pattern='$F4', ext='exr', absname='testA_diffuse', padding=4, wild_name='testA_????_diffuse'",
+        "template": "d:/render/testA_$F4_diffuse.exr",
+        "wild_name": "testA_????_diffuse"
+      },
+      "input": "d:/render/testA_$F4_diffuse.exr"
+    },
+    {
+      "expected": {
+        "absname": "testA_diffuse",
+        "basename": "testA_diffuse$F4.exr",
+        "dirname": "d:/render",
+        "ext": "exr",
+        "filename": "d:/render/testA_diffuse$F4.exr",
+        "name": "testA_diffuse",
+        "other_pattern": null,
+        "padding": 4,
+        "pattern": "$F4",
+        "repr": "name='testA_diffuse', pattern='$F4', ext='exr', absname='testA_diffuse', padding=4, wild_name='testA_diffuse????'",
+        "str": "name='testA_diffuse', pattern='$F4', ext='exr', absname='testA_diffuse', padding=4, wild_name='testA_diffuse????'",
+        "template": "d:/render/testA_diffuse$F4.exr",
+        "wild_name": "testA_diffuse????"
+      },
+      "input": "d:/render/testA_diffuse$F4.exr"
+    },
+    {
+      "expected": {
+        "absname": "testA_diffusev001",
+        "basename": "testA_diffusev001.exr",
+        "dirname": "d:/render",
+        "ext": "exr",
+        "filename": "d:/render/testA_diffusev001.exr",
+        "name": "testA_diffusev001",
+        "other_pattern": null,
+        "padding": 0,
+        "pattern": "",
+        "repr": "name='testA_diffusev001', pattern='', ext='exr', absname='testA_diffusev001', padding=0, wild_name='testA_diffusev001'",
+        "str": "name='testA_diffusev001', pattern='', ext='exr', absname='testA_diffusev001', padding=0, wild_name='testA_diffusev001'",
+        "template": "d:/render/testA_diffusev001.exr",
+        "wild_name": "testA_diffusev001"
+      },
+      "input": "d:/render/testA_diffusev001.exr"
+    },
+    {
+      "expected": {
+        "absname": "testA.beauty",
+        "basename": "testA.beauty1001.exr",
+        "dirname": "d:/render",
+        "ext": "exr",
+        "filename": "d:/render/testA.beauty1001.exr",
+        "name": "testA.beauty",
+        "other_pattern": null,
+        "padding": 4,
+        "pattern": "1001",
+        "repr": "name='testA.beauty', pattern='1001', ext='exr', absname='testA.beauty', padding=4, wild_name='testA.beauty????'",
+        "str": "name='testA.beauty', pattern='1001', ext='exr', absname='testA.beauty', padding=4, wild_name='testA.beauty????'",
+        "template": "d:/render/testA.beauty%04d.exr",
+        "wild_name": "testA.beauty????"
+      },
+      "input": "d:/render/testA.beauty1001.exr"
+    },
+    {
+      "expected": {
+        "absname": "testA.%V",
+        "basename": "testA.%04d.%V.exr",
+        "dirname": "d:/render",
+        "ext": "exr",
+        "filename": "d:/render/testA.%04d.%V.exr",
+        "name": "testA.%V",
+        "other_pattern": "%V",
+        "padding": 4,
+        "pattern": "%04d",
+        "repr": "name='testA.%V', pattern='%04d', ext='exr', absname='testA.%V', padding=4, wild_name='testA.????.%V'",
+        "str": "name='testA.%V', pattern='%04d', ext='exr', absname='testA.%V', padding=4, wild_name='testA.????.%V'",
+        "template": "d:/render/testA.%04d.%V.exr",
+        "wild_name": "testA.????.%V"
+      },
+      "input": "d:/render/testA.%04d.%V.exr"
+    },
+    {
+      "expected": {
+        "absname": "testA",
+        "basename": "testA.1001.exr.gz",
+        "dirname": "d:/render",
+        "ext": "exr.gz",
+        "filename": "d:/render/testA.1001.exr.gz",
+        "name": "testA.",
+        "other_pattern": null,
+        "padding": 4,
+        "pattern": "1001",
+        "repr": "name='testA.', pattern='1001', ext='exr.gz', absname='testA', padding=4, wild_name='testA.????'",
+        "str": "name='testA.', pattern='1001', ext='exr.gz', absname='testA', padding=4, wild_name='testA.????'",
+        "template": "d:/render/testA.%04d.exr.gz",
+        "wild_name": "testA.????"
+      },
+      "input": "d:/render/testA.1001.exr.gz"
+    },
+    {
+      "expected": {
+        "absname": "testA",
+        "basename": "testA.1001.exr.bak",
+        "dirname": "d:/render",
+        "ext": "exr.bak",
+        "filename": "d:/render/testA.1001.exr.bak",
+        "name": "testA.",
+        "other_pattern": null,
+        "padding": 4,
+        "pattern": "1001",
+        "repr": "name='testA.', pattern='1001', ext='exr.bak', absname='testA', padding=4, wild_name='testA.????'",
+        "str": "name='testA.', pattern='1001', ext='exr.bak', absname='testA', padding=4, wild_name='testA.????'",
+        "template": "d:/render/testA.%04d.exr.bak",
+        "wild_name": "testA.????"
+      },
+      "input": "d:/render/testA.1001.exr.bak"
+    },
+    {
+      "expected": {
+        "absname": "shot.1001",
+        "basename": "shot.1001.1001.ext",
+        "dirname": "d:/render",
+        "ext": "ext",
+        "filename": "d:/render/shot.1001.1001.ext",
+        "name": "shot.1001.",
+        "other_pattern": null,
+        "padding": 4,
+        "pattern": "1001",
+        "repr": "name='shot.1001.', pattern='1001', ext='ext', absname='shot.1001', padding=4, wild_name='shot.1001.????'",
+        "str": "name='shot.1001.', pattern='1001', ext='ext', absname='shot.1001', padding=4, wild_name='shot.1001.????'",
+        "template": "d:/render/shot.1001.%04d.ext",
+        "wild_name": "shot.1001.????"
+      },
+      "input": "d:/render/shot.1001.1001.ext"
+    },
+    {
+      "expected": {
+        "absname": "shot_v002_final",
+        "basename": "shot_v002_final.exr",
+        "dirname": "d:/render",
+        "ext": "exr",
+        "filename": "d:/render/shot_v002_final.exr",
+        "name": "shot_v002_final",
+        "other_pattern": null,
+        "padding": 0,
+        "pattern": "",
+        "repr": "name='shot_v002_final', pattern='', ext='exr', absname='shot_v002_final', padding=0, wild_name='shot_v002_final'",
+        "str": "name='shot_v002_final', pattern='', ext='exr', absname='shot_v002_final', padding=0, wild_name='shot_v002_final'",
+        "template": "d:/render/shot_v002_final.exr",
+        "wild_name": "shot_v002_final"
+      },
+      "input": "d:/render/shot_v002_final.exr"
+    },
+    {
+      "expected": {
+        "absname": "shot_v1001_diff",
+        "basename": "shot_v1001_diff.exr",
+        "dirname": "d:/render",
+        "ext": "exr",
+        "filename": "d:/render/shot_v1001_diff.exr",
+        "name": "shot_v1001_diff",
+        "other_pattern": null,
+        "padding": 0,
+        "pattern": "",
+        "repr": "name='shot_v1001_diff', pattern='', ext='exr', absname='shot_v1001_diff', padding=0, wild_name='shot_v1001_diff'",
+        "str": "name='shot_v1001_diff', pattern='', ext='exr', absname='shot_v1001_diff', padding=0, wild_name='shot_v1001_diff'",
+        "template": "d:/render/shot_v1001_diff.exr",
+        "wild_name": "shot_v1001_diff"
+      },
+      "input": "d:/render/shot_v1001_diff.exr"
+    },
+    {
+      "expected": {
+        "absname": "show_asset",
+        "basename": "show_20260924_asset.exr",
+        "dirname": "d:/render",
+        "ext": "exr",
+        "filename": "d:/render/show_20260924_asset.exr",
+        "name": "show_asset",
+        "other_pattern": null,
+        "padding": 8,
+        "pattern": "20260924",
+        "repr": "name='show_asset', pattern='20260924', ext='exr', absname='show_asset', padding=8, wild_name='show_????????_asset'",
+        "str": "name='show_asset', pattern='20260924', ext='exr', absname='show_asset', padding=8, wild_name='show_????????_asset'",
+        "template": "d:/render/show_%08d_asset.exr",
+        "wild_name": "show_????????_asset"
+      },
+      "input": "d:/render/show_20260924_asset.exr"
+    },
+    {
+      "expected": {
+        "absname": null,
+        "basename": "testA",
+        "dirname": "d:/render",
+        "ext": "",
+        "filename": "d:/render/testA",
+        "name": null,
+        "other_pattern": null,
+        "padding": 0,
+        "pattern": null,
+        "repr": "",
+        "str": "",
+        "template": "d:/render/testA",
+        "wild_name": null
+      },
+      "input": "d:/render/testA"
+    },
+    {
+      "expected": {
+        "absname": "testA_0110_key_master_v009",
+        "basename": "testA_0110_key_master_v009.exr",
+        "dirname": "d:/render",
+        "ext": "exr",
+        "filename": "d:/render/testA_0110_key_master_v009.exr",
+        "name": "testA_0110_key_master_v009",
+        "other_pattern": null,
+        "padding": 0,
+        "pattern": "",
+        "repr": "name='testA_0110_key_master_v009', pattern='', ext='exr', absname='testA_0110_key_master_v009', padding=0, wild_name='testA_0110_key_master_v009'",
+        "str": "name='testA_0110_key_master_v009', pattern='', ext='exr', absname='testA_0110_key_master_v009', padding=0, wild_name='testA_0110_key_master_v009'",
+        "template": "d:/render/testA_0110_key_master_v009.exr",
+        "wild_name": "testA_0110_key_master_v009"
+      },
+      "input": "d:/render/testA_0110_key_master_v009.exr"
+    },
+    {
+      "expected": {
+        "absname": "testA2_Bokeh_DOF_04",
+        "basename": "testA2_Bokeh_DOF_04.mp4",
+        "dirname": "d:/render",
+        "ext": "mp4",
+        "filename": "d:/render/testA2_Bokeh_DOF_04.mp4",
+        "name": "testA2_Bokeh_DOF_04",
+        "other_pattern": null,
+        "padding": 0,
+        "pattern": "",
+        "repr": "name='testA2_Bokeh_DOF_04', pattern='', ext='mp4', absname='testA2_Bokeh_DOF_04', padding=0, wild_name='testA2_Bokeh_DOF_04'",
+        "str": "name='testA2_Bokeh_DOF_04', pattern='', ext='mp4', absname='testA2_Bokeh_DOF_04', padding=0, wild_name='testA2_Bokeh_DOF_04'",
+        "template": "d:/render/testA2_Bokeh_DOF_04.mp4",
+        "wild_name": "testA2_Bokeh_DOF_04"
+      },
+      "input": "d:/render/testA2_Bokeh_DOF_04.mp4"
+    },
+    {
+      "expected": {
+        "absname": "testA_154_022_leaf_diffuse_",
+        "basename": "testA_154_022_leaf_diffuse_02.jpg",
+        "dirname": "d:/tex",
+        "ext": "jpg",
+        "filename": "d:/tex/testA_154_022_leaf_diffuse_02.jpg",
+        "name": "testA_154_022_leaf_diffuse_",
+        "other_pattern": null,
+        "padding": 2,
+        "pattern": "02",
+        "repr": "name='testA_154_022_leaf_diffuse_', pattern='02', ext='jpg', absname='testA_154_022_leaf_diffuse_', padding=2, wild_name='testA_154_022_leaf_diffuse_??'",
+        "str": "name='testA_154_022_leaf_diffuse_', pattern='02', ext='jpg', absname='testA_154_022_leaf_diffuse_', padding=2, wild_name='testA_154_022_leaf_diffuse_??'",
+        "template": "d:/tex/testA_154_022_leaf_diffuse_%02d.jpg",
+        "wild_name": "testA_154_022_leaf_diffuse_??"
+      },
+      "input": "d:/tex/testA_154_022_leaf_diffuse_02.jpg"
+    },
+    {
+      "expected": {
+        "absname": "testA_154_022_leaf_.diffuse_",
+        "basename": "testA_154_022_leaf_.diffuse_02.bgeo.sc",
+        "dirname": "d:/cache",
+        "ext": "bgeo.sc",
+        "filename": "d:/cache/testA_154_022_leaf_.diffuse_02.bgeo.sc",
+        "name": "testA_154_022_leaf_.diffuse_",
+        "other_pattern": null,
+        "padding": 2,
+        "pattern": "02",
+        "repr": "name='testA_154_022_leaf_.diffuse_', pattern='02', ext='bgeo.sc', absname='testA_154_022_leaf_.diffuse_', padding=2, wild_name='testA_154_022_leaf_.diffuse_??'",
+        "str": "name='testA_154_022_leaf_.diffuse_', pattern='02', ext='bgeo.sc', absname='testA_154_022_leaf_.diffuse_', padding=2, wild_name='testA_154_022_leaf_.diffuse_??'",
+        "template": "d:/cache/testA_154_022_leaf_.diffuse_%02d.bgeo.sc",
+        "wild_name": "testA_154_022_leaf_.diffuse_??"
+      },
+      "input": "d:/cache/testA_154_022_leaf_.diffuse_02.bgeo.sc"
+    },
+    {
+      "expected": {
+        "absname": "testA_154_022_leaf_.diffuse_",
+        "basename": "testA_154_022_leaf_.diffuse_02.ass.gz",
+        "dirname": "d:/cache",
+        "ext": "ass.gz",
+        "filename": "d:/cache/testA_154_022_leaf_.diffuse_02.ass.gz",
+        "name": "testA_154_022_leaf_.diffuse_",
+        "other_pattern": null,
+        "padding": 2,
+        "pattern": "02",
+        "repr": "name='testA_154_022_leaf_.diffuse_', pattern='02', ext='ass.gz', absname='testA_154_022_leaf_.diffuse_', padding=2, wild_name='testA_154_022_leaf_.diffuse_??'",
+        "str": "name='testA_154_022_leaf_.diffuse_', pattern='02', ext='ass.gz', absname='testA_154_022_leaf_.diffuse_', padding=2, wild_name='testA_154_022_leaf_.diffuse_??'",
+        "template": "d:/cache/testA_154_022_leaf_.diffuse_%02d.ass.gz",
+        "wild_name": "testA_154_022_leaf_.diffuse_??"
+      },
+      "input": "d:/cache/testA_154_022_leaf_.diffuse_02.ass.gz"
+    },
+    {
+      "expected": {
+        "absname": "testA10_mask_8k",
+        "basename": "testA10_mask_<UDIM>_8k.jpg",
+        "dirname": "d:/tex",
+        "ext": "jpg",
+        "filename": "d:/tex/testA10_mask_<UDIM>_8k.jpg",
+        "name": "testA10_mask_8k",
+        "other_pattern": null,
+        "padding": 4,
+        "pattern": "<UDIM>",
+        "repr": "name='testA10_mask_8k', pattern='<UDIM>', ext='jpg', absname='testA10_mask_8k', padding=4, wild_name='testA10_mask_????_8k'",
+        "str": "name='testA10_mask_8k', pattern='<UDIM>', ext='jpg', absname='testA10_mask_8k', padding=4, wild_name='testA10_mask_????_8k'",
+        "template": "d:/tex/testA10_mask_<UDIM>_8k.jpg",
+        "wild_name": "testA10_mask_????_8k"
+      },
+      "input": "d:/tex/testA10_mask_<UDIM>_8k.jpg"
+    },
+    {
+      "expected": {
+        "absname": "testA_mask_1001_8k_",
+        "basename": "testA_mask_1001_8k_<UDIM>.jpg",
+        "dirname": "d:/tex",
+        "ext": "jpg",
+        "filename": "d:/tex/testA_mask_1001_8k_<UDIM>.jpg",
+        "name": "testA_mask_1001_8k_",
+        "other_pattern": null,
+        "padding": 4,
+        "pattern": "<UDIM>",
+        "repr": "name='testA_mask_1001_8k_', pattern='<UDIM>', ext='jpg', absname='testA_mask_1001_8k_', padding=4, wild_name='testA_mask_1001_8k_????'",
+        "str": "name='testA_mask_1001_8k_', pattern='<UDIM>', ext='jpg', absname='testA_mask_1001_8k_', padding=4, wild_name='testA_mask_1001_8k_????'",
+        "template": "d:/tex/testA_mask_1001_8k_<UDIM>.jpg",
+        "wild_name": "testA_mask_1001_8k_????"
+      },
+      "input": "d:/tex/testA_mask_1001_8k_<UDIM>.jpg"
+    },
+    {
+      "expected": {
+        "absname": "testA_mask_8k",
+        "basename": "testA_mask_1001_8k.jpg",
+        "dirname": "d:/tex",
+        "ext": "jpg",
+        "filename": "d:/tex/testA_mask_1001_8k.jpg",
+        "name": "testA_mask_8k",
+        "other_pattern": null,
+        "padding": 4,
+        "pattern": "1001",
+        "repr": "name='testA_mask_8k', pattern='1001', ext='jpg', absname='testA_mask_8k', padding=4, wild_name='testA_mask_????_8k'",
+        "str": "name='testA_mask_8k', pattern='1001', ext='jpg', absname='testA_mask_8k', padding=4, wild_name='testA_mask_????_8k'",
+        "template": "d:/tex/testA_mask_%04d_8k.jpg",
+        "wild_name": "testA_mask_????_8k"
+      },
+      "input": "d:/tex/testA_mask_1001_8k.jpg"
+    },
+    {
+      "expected": {
+        "absname": "testA.mask_8k",
+        "basename": "testA.mask_1001_8k.jpg",
+        "dirname": "d:/tex",
+        "ext": "jpg",
+        "filename": "d:/tex/testA.mask_1001_8k.jpg",
+        "name": "testA.mask_8k",
+        "other_pattern": null,
+        "padding": 4,
+        "pattern": "1001",
+        "repr": "name='testA.mask_8k', pattern='1001', ext='jpg', absname='testA.mask_8k', padding=4, wild_name='testA.mask_????_8k'",
+        "str": "name='testA.mask_8k', pattern='1001', ext='jpg', absname='testA.mask_8k', padding=4, wild_name='testA.mask_????_8k'",
+        "template": "d:/tex/testA.mask_%04d_8k.jpg",
+        "wild_name": "testA.mask_????_8k"
+      },
+      "input": "d:/tex/testA.mask_1001_8k.jpg"
+    },
+    {
+      "expected": {
+        "absname": "testA_mask_8k",
+        "basename": "testA_mask_<UDIM>_8k.jpg",
+        "dirname": "d:/tex",
+        "ext": "jpg",
+        "filename": "d:/tex/testA_mask_<UDIM>_8k.jpg",
+        "name": "testA_mask_8k",
+        "other_pattern": null,
+        "padding": 4,
+        "pattern": "<UDIM>",
+        "repr": "name='testA_mask_8k', pattern='<UDIM>', ext='jpg', absname='testA_mask_8k', padding=4, wild_name='testA_mask_????_8k'",
+        "str": "name='testA_mask_8k', pattern='<UDIM>', ext='jpg', absname='testA_mask_8k', padding=4, wild_name='testA_mask_????_8k'",
+        "template": "d:/tex/testA_mask_<UDIM>_8k.jpg",
+        "wild_name": "testA_mask_????_8k"
+      },
+      "input": "d:/tex/testA_mask_<UDIM>_8k.jpg"
+    },
+    {
+      "expected": {
+        "absname": "testA_leg_02_Height",
+        "basename": "testA_leg_02_1021_Height.tif",
+        "dirname": "d:/tex",
+        "ext": "tif",
+        "filename": "d:/tex/testA_leg_02_1021_Height.tif",
+        "name": "testA_leg_02_Height",
+        "other_pattern": null,
+        "padding": 4,
+        "pattern": "1021",
+        "repr": "name='testA_leg_02_Height', pattern='1021', ext='tif', absname='testA_leg_02_Height', padding=4, wild_name='testA_leg_02_????_Height'",
+        "str": "name='testA_leg_02_Height', pattern='1021', ext='tif', absname='testA_leg_02_Height', padding=4, wild_name='testA_leg_02_????_Height'",
+        "template": "d:/tex/testA_leg_02_%04d_Height.tif",
+        "wild_name": "testA_leg_02_????_Height"
+      },
+      "input": "d:/tex/testA_leg_02_1021_Height.tif"
+    },
+    {
+      "expected": {
+        "absname": "testA_leg_02.Height",
+        "basename": "testA_leg_02.1021_Height.tif",
+        "dirname": "d:/tex",
+        "ext": "tif",
+        "filename": "d:/tex/testA_leg_02.1021_Height.tif",
+        "name": "testA_leg_02.Height",
+        "other_pattern": null,
+        "padding": 4,
+        "pattern": "1021",
+        "repr": "name='testA_leg_02.Height', pattern='1021', ext='tif', absname='testA_leg_02.Height', padding=4, wild_name='testA_leg_02.????_Height'",
+        "str": "name='testA_leg_02.Height', pattern='1021', ext='tif', absname='testA_leg_02.Height', padding=4, wild_name='testA_leg_02.????_Height'",
+        "template": "d:/tex/testA_leg_02.%04d_Height.tif",
+        "wild_name": "testA_leg_02.????_Height"
+      },
+      "input": "d:/tex/testA_leg_02.1021_Height.tif"
+    },
+    {
+      "expected": {
+        "absname": "testA_leg_xy.02_Height",
+        "basename": "testA_leg_xy.02_1021_Height.tif",
+        "dirname": "d:/tex",
+        "ext": "tif",
+        "filename": "d:/tex/testA_leg_xy.02_1021_Height.tif",
+        "name": "testA_leg_xy.02_Height",
+        "other_pattern": null,
+        "padding": 4,
+        "pattern": "1021",
+        "repr": "name='testA_leg_xy.02_Height', pattern='1021', ext='tif', absname='testA_leg_xy.02_Height', padding=4, wild_name='testA_leg_xy.02_????_Height'",
+        "str": "name='testA_leg_xy.02_Height', pattern='1021', ext='tif', absname='testA_leg_xy.02_Height', padding=4, wild_name='testA_leg_xy.02_????_Height'",
+        "template": "d:/tex/testA_leg_xy.02_%04d_Height.tif",
+        "wild_name": "testA_leg_xy.02_????_Height"
+      },
+      "input": "d:/tex/testA_leg_xy.02_1021_Height.tif"
+    },
+    {
+      "expected": {
+        "absname": "testA_leg_xy.Height",
+        "basename": "testA_leg_xy.1021_Height.tif",
+        "dirname": "d:/tex",
+        "ext": "tif",
+        "filename": "d:/tex/testA_leg_xy.1021_Height.tif",
+        "name": "testA_leg_xy.Height",
+        "other_pattern": null,
+        "padding": 4,
+        "pattern": "1021",
+        "repr": "name='testA_leg_xy.Height', pattern='1021', ext='tif', absname='testA_leg_xy.Height', padding=4, wild_name='testA_leg_xy.????_Height'",
+        "str": "name='testA_leg_xy.Height', pattern='1021', ext='tif', absname='testA_leg_xy.Height', padding=4, wild_name='testA_leg_xy.????_Height'",
+        "template": "d:/tex/testA_leg_xy.%04d_Height.tif",
+        "wild_name": "testA_leg_xy.????_Height"
+      },
+      "input": "d:/tex/testA_leg_xy.1021_Height.tif"
+    },
+    {
+      "expected": {
+        "absname": "testA_leg_xy._Height",
+        "basename": "testA_leg_xy._1021_Height.tif",
+        "dirname": "d:/tex",
+        "ext": "tif",
+        "filename": "d:/tex/testA_leg_xy._1021_Height.tif",
+        "name": "testA_leg_xy._Height",
+        "other_pattern": null,
+        "padding": 4,
+        "pattern": "1021",
+        "repr": "name='testA_leg_xy._Height', pattern='1021', ext='tif', absname='testA_leg_xy._Height', padding=4, wild_name='testA_leg_xy._????_Height'",
+        "str": "name='testA_leg_xy._Height', pattern='1021', ext='tif', absname='testA_leg_xy._Height', padding=4, wild_name='testA_leg_xy._????_Height'",
+        "template": "d:/tex/testA_leg_xy._%04d_Height.tif",
+        "wild_name": "testA_leg_xy._????_Height"
+      },
+      "input": "d:/tex/testA_leg_xy._1021_Height.tif"
+    },
+    {
+      "expected": {
+        "absname": "testA_leg_02_Height",
+        "basename": "testA_leg_02_<UDIM>_Height.tif",
+        "dirname": "d:/tex",
+        "ext": "tif",
+        "filename": "d:/tex/testA_leg_02_<UDIM>_Height.tif",
+        "name": "testA_leg_02_Height",
+        "other_pattern": null,
+        "padding": 4,
+        "pattern": "<UDIM>",
+        "repr": "name='testA_leg_02_Height', pattern='<UDIM>', ext='tif', absname='testA_leg_02_Height', padding=4, wild_name='testA_leg_02_????_Height'",
+        "str": "name='testA_leg_02_Height', pattern='<UDIM>', ext='tif', absname='testA_leg_02_Height', padding=4, wild_name='testA_leg_02_????_Height'",
+        "template": "d:/tex/testA_leg_02_<UDIM>_Height.tif",
+        "wild_name": "testA_leg_02_????_Height"
+      },
+      "input": "d:/tex/testA_leg_02_<UDIM>_Height.tif"
+    },
+    {
+      "expected": {
+        "absname": "testA_leg_02_(1)",
+        "basename": "testA_leg_02_<UDIM>(1).tif",
+        "dirname": "d:/tex",
+        "ext": "tif",
+        "filename": "d:/tex/testA_leg_02_<UDIM>(1).tif",
+        "name": "testA_leg_02_(1)",
+        "other_pattern": null,
+        "padding": 4,
+        "pattern": "<UDIM>",
+        "repr": "name='testA_leg_02_(1)', pattern='<UDIM>', ext='tif', absname='testA_leg_02_(1)', padding=4, wild_name='testA_leg_02_????(1)'",
+        "str": "name='testA_leg_02_(1)', pattern='<UDIM>', ext='tif', absname='testA_leg_02_(1)', padding=4, wild_name='testA_leg_02_????(1)'",
+        "template": "d:/tex/testA_leg_02_<UDIM>(1).tif",
+        "wild_name": "testA_leg_02_????(1)"
+      },
+      "input": "d:/tex/testA_leg_02_<UDIM>(1).tif"
+    },
+    {
+      "expected": {
+        "absname": "testA_leg_02_(1)",
+        "basename": "testA_leg_02_1001(1).tif",
+        "dirname": "d:/tex",
+        "ext": "tif",
+        "filename": "d:/tex/testA_leg_02_1001(1).tif",
+        "name": "testA_leg_02_(1)",
+        "other_pattern": null,
+        "padding": 4,
+        "pattern": "1001",
+        "repr": "name='testA_leg_02_(1)', pattern='1001', ext='tif', absname='testA_leg_02_(1)', padding=4, wild_name='testA_leg_02_????(1)'",
+        "str": "name='testA_leg_02_(1)', pattern='1001', ext='tif', absname='testA_leg_02_(1)', padding=4, wild_name='testA_leg_02_????(1)'",
+        "template": "d:/tex/testA_leg_02_%04d(1).tif",
+        "wild_name": "testA_leg_02_????(1)"
+      },
+      "input": "d:/tex/testA_leg_02_1001(1).tif"
+    },
+    {
+      "expected": {
+        "absname": "testA_1234_mask_4K_",
+        "basename": "testA_1234_mask_4K_1001.jpg",
+        "dirname": "d:/tex",
+        "ext": "jpg",
+        "filename": "d:/tex/testA_1234_mask_4K_1001.jpg",
+        "name": "testA_1234_mask_4K_",
+        "other_pattern": null,
+        "padding": 4,
+        "pattern": "1001",
+        "repr": "name='testA_1234_mask_4K_', pattern='1001', ext='jpg', absname='testA_1234_mask_4K_', padding=4, wild_name='testA_1234_mask_4K_????'",
+        "str": "name='testA_1234_mask_4K_', pattern='1001', ext='jpg', absname='testA_1234_mask_4K_', padding=4, wild_name='testA_1234_mask_4K_????'",
+        "template": "d:/tex/testA_1234_mask_4K_%04d.jpg",
+        "wild_name": "testA_1234_mask_4K_????"
+      },
+      "input": "d:/tex/testA_1234_mask_4K_1001.jpg"
+    },
+    {
+      "expected": {
+        "absname": "testA_body_coat_8k_Raw_scene-linear Rec 709_sRGB",
+        "basename": "testA_body_coat_8k_1001_Raw_scene-linear Rec 709_sRGB.tif.tx",
+        "dirname": "d:/tex",
+        "ext": "tx",
+        "filename": "d:/tex/testA_body_coat_8k_1001_Raw_scene-linear Rec 709_sRGB.tif.tx",
+        "name": "testA_body_coat_8k_Raw_scene-linear Rec 709_sRGB",
+        "other_pattern": null,
+        "padding": 4,
+        "pattern": "1001",
+        "repr": "name='testA_body_coat_8k_Raw_scene-linear Rec 709_sRGB', pattern='1001', ext='tx', absname='testA_body_coat_8k_Raw_scene-linear Rec 709_sRGB', padding=4, wild_name='testA_body_coat_8k_????_Raw_scene-linear Rec 709_sRGB'",
+        "str": "name='testA_body_coat_8k_Raw_scene-linear Rec 709_sRGB', pattern='1001', ext='tx', absname='testA_body_coat_8k_Raw_scene-linear Rec 709_sRGB', padding=4, wild_name='testA_body_coat_8k_????_Raw_scene-linear Rec 709_sRGB'",
+        "template": "d:/tex/testA_body_coat_8k_%04d_Raw_scene-linear Rec 709_sRGB.tif.tx",
+        "wild_name": "testA_body_coat_8k_????_Raw_scene-linear Rec 709_sRGB"
+      },
+      "input": "d:/tex/testA_body_coat_8k_1001_Raw_scene-linear Rec 709_sRGB.tif.tx"
+    },
+    {
+      "expected": {
+        "absname": "testA_body_coat_8k_Raw_scene-linear Rec 709_sRGB",
+        "basename": "testA_body_coat_8k_<UDIM>_Raw_scene-linear Rec 709_sRGB.tif.tx",
+        "dirname": "d:/tex",
+        "ext": "tx",
+        "filename": "d:/tex/testA_body_coat_8k_<UDIM>_Raw_scene-linear Rec 709_sRGB.tif.tx",
+        "name": "testA_body_coat_8k_Raw_scene-linear Rec 709_sRGB",
+        "other_pattern": null,
+        "padding": 4,
+        "pattern": "<UDIM>",
+        "repr": "name='testA_body_coat_8k_Raw_scene-linear Rec 709_sRGB', pattern='<UDIM>', ext='tx', absname='testA_body_coat_8k_Raw_scene-linear Rec 709_sRGB', padding=4, wild_name='testA_body_coat_8k_????_Raw_scene-linear Rec 709_sRGB'",
+        "str": "name='testA_body_coat_8k_Raw_scene-linear Rec 709_sRGB', pattern='<UDIM>', ext='tx', absname='testA_body_coat_8k_Raw_scene-linear Rec 709_sRGB', padding=4, wild_name='testA_body_coat_8k_????_Raw_scene-linear Rec 709_sRGB'",
+        "template": "d:/tex/testA_body_coat_8k_<UDIM>_Raw_scene-linear Rec 709_sRGB.tif.tx",
+        "wild_name": "testA_body_coat_8k_????_Raw_scene-linear Rec 709_sRGB"
+      },
+      "input": "d:/tex/testA_body_coat_8k_<UDIM>_Raw_scene-linear Rec 709_sRGB.tif.tx"
+    },
+    {
+      "expected": {
+        "absname": "testA_cloth_col_4k.sRGB_scene-linear Rec 709_sRGB",
+        "basename": "testA_cloth_col_4k.<udim>_sRGB_scene-linear Rec 709_sRGB.tif.tx",
+        "dirname": "d:/tex",
+        "ext": "tx",
+        "filename": "d:/tex/testA_cloth_col_4k.<udim>_sRGB_scene-linear Rec 709_sRGB.tif.tx",
+        "name": "testA_cloth_col_4k.sRGB_scene-linear Rec 709_sRGB",
+        "other_pattern": null,
+        "padding": 4,
+        "pattern": "<udim>",
+        "repr": "name='testA_cloth_col_4k.sRGB_scene-linear Rec 709_sRGB', pattern='<udim>', ext='tx', absname='testA_cloth_col_4k.sRGB_scene-linear Rec 709_sRGB', padding=4, wild_name='testA_cloth_col_4k.????_sRGB_scene-linear Rec 709_sRGB'",
+        "str": "name='testA_cloth_col_4k.sRGB_scene-linear Rec 709_sRGB', pattern='<udim>', ext='tx', absname='testA_cloth_col_4k.sRGB_scene-linear Rec 709_sRGB', padding=4, wild_name='testA_cloth_col_4k.????_sRGB_scene-linear Rec 709_sRGB'",
+        "template": "d:/tex/testA_cloth_col_4k.<UDIM>_sRGB_scene-linear Rec 709_sRGB.tif.tx",
+        "wild_name": "testA_cloth_col_4k.????_sRGB_scene-linear Rec 709_sRGB"
+      },
+      "input": "d:/tex/testA_cloth_col_4k.<udim>_sRGB_scene-linear Rec 709_sRGB.tif.tx"
+    },
+    {
+      "expected": {
+        "absname": "testA_cloth_col_4k.sRGB_scene-linear Rec 709_sRGB",
+        "basename": "testA_cloth_col_4k.1001_sRGB_scene-linear Rec 709_sRGB.tif.tx",
+        "dirname": "d:/tex",
+        "ext": "tx",
+        "filename": "d:/tex/testA_cloth_col_4k.1001_sRGB_scene-linear Rec 709_sRGB.tif.tx",
+        "name": "testA_cloth_col_4k.sRGB_scene-linear Rec 709_sRGB",
+        "other_pattern": null,
+        "padding": 4,
+        "pattern": "1001",
+        "repr": "name='testA_cloth_col_4k.sRGB_scene-linear Rec 709_sRGB', pattern='1001', ext='tx', absname='testA_cloth_col_4k.sRGB_scene-linear Rec 709_sRGB', padding=4, wild_name='testA_cloth_col_4k.????_sRGB_scene-linear Rec 709_sRGB'",
+        "str": "name='testA_cloth_col_4k.sRGB_scene-linear Rec 709_sRGB', pattern='1001', ext='tx', absname='testA_cloth_col_4k.sRGB_scene-linear Rec 709_sRGB', padding=4, wild_name='testA_cloth_col_4k.????_sRGB_scene-linear Rec 709_sRGB'",
+        "template": "d:/tex/testA_cloth_col_4k.%04d_sRGB_scene-linear Rec 709_sRGB.tif.tx",
+        "wild_name": "testA_cloth_col_4k.????_sRGB_scene-linear Rec 709_sRGB"
+      },
+      "input": "d:/tex/testA_cloth_col_4k.1001_sRGB_scene-linear Rec 709_sRGB.tif.tx"
+    },
+    {
+      "expected": {
+        "absname": "testA_diffuse",
+        "basename": "testA_diffuseu1_v1.exr",
+        "dirname": "d:/tex",
+        "ext": "exr",
+        "filename": "d:/tex/testA_diffuseu1_v1.exr",
+        "name": "testA_diffuse",
+        "other_pattern": null,
+        "padding": 0,
+        "pattern": "u1_v1",
+        "repr": "name='testA_diffuse', pattern='u1_v1', ext='exr', absname='testA_diffuse', padding=0, wild_name='testA_diffuseu?_v?'",
+        "str": "name='testA_diffuse', pattern='u1_v1', ext='exr', absname='testA_diffuse', padding=0, wild_name='testA_diffuseu?_v?'",
+        "template": "d:/tex/testA_diffuseu1_v1.exr",
+        "wild_name": "testA_diffuseu?_v?"
+      },
+      "input": "d:/tex/testA_diffuseu1_v1.exr"
+    },
+    {
+      "expected": {
+        "absname": "testA_diffuse",
+        "basename": "testA_u1_v1_diffuse.exr",
+        "dirname": "d:/tex",
+        "ext": "exr",
+        "filename": "d:/tex/testA_u1_v1_diffuse.exr",
+        "name": "testA_diffuse",
+        "other_pattern": null,
+        "padding": 0,
+        "pattern": "u1_v1",
+        "repr": "name='testA_diffuse', pattern='u1_v1', ext='exr', absname='testA_diffuse', padding=0, wild_name='testA_u?_v?_diffuse'",
+        "str": "name='testA_diffuse', pattern='u1_v1', ext='exr', absname='testA_diffuse', padding=0, wild_name='testA_u?_v?_diffuse'",
+        "template": "d:/tex/testA_u1_v1_diffuse.exr",
+        "wild_name": "testA_u?_v?_diffuse"
+      },
+      "input": "d:/tex/testA_u1_v1_diffuse.exr"
+    },
+    {
+      "expected": {
+        "absname": "testA_diffuse.u1_v1",
+        "basename": "testA_diffuse.u1_v1.1.exr",
+        "dirname": "d:/tex",
+        "ext": "exr",
+        "filename": "d:/tex/testA_diffuse.u1_v1.1.exr",
+        "name": "testA_diffuse.u1_v1.",
+        "other_pattern": "u1_v1",
+        "padding": 1,
+        "pattern": "1",
+        "repr": "name='testA_diffuse.u1_v1.', pattern='1', ext='exr', absname='testA_diffuse.u1_v1', padding=1, wild_name='testA_diffuse.u1_v1.?'",
+        "str": "name='testA_diffuse.u1_v1.', pattern='1', ext='exr', absname='testA_diffuse.u1_v1', padding=1, wild_name='testA_diffuse.u1_v1.?'",
+        "template": "d:/tex/testA_diffuse.u1_v1.%01d.exr",
+        "wild_name": "testA_diffuse.u1_v1.?"
+      },
+      "input": "d:/tex/testA_diffuse.u1_v1.1.exr"
+    },
+    {
+      "expected": {
+        "absname": "testA_diffuse",
+        "basename": "testA_diffuse.u1_v1.exr",
+        "dirname": "d:/tex",
+        "ext": "exr",
+        "filename": "d:/tex/testA_diffuse.u1_v1.exr",
+        "name": "testA_diffuse.",
+        "other_pattern": null,
+        "padding": 0,
+        "pattern": "u1_v1",
+        "repr": "name='testA_diffuse.', pattern='u1_v1', ext='exr', absname='testA_diffuse', padding=0, wild_name='testA_diffuse.u?_v?'",
+        "str": "name='testA_diffuse.', pattern='u1_v1', ext='exr', absname='testA_diffuse', padding=0, wild_name='testA_diffuse.u?_v?'",
+        "template": "d:/tex/testA_diffuse.u1_v1.exr",
+        "wild_name": "testA_diffuse.u?_v?"
+      },
+      "input": "d:/tex/testA_diffuse.u1_v1.exr"
+    },
+    {
+      "expected": {
+        "absname": "testA_diffuse",
+        "basename": "testA_diffuse.u<U>_v<V>.exr",
+        "dirname": "d:/tex",
+        "ext": "exr",
+        "filename": "d:/tex/testA_diffuse.u<U>_v<V>.exr",
+        "name": "testA_diffuse.",
+        "other_pattern": null,
+        "padding": 0,
+        "pattern": "u<U>_v<V>",
+        "repr": "name='testA_diffuse.', pattern='u<U>_v<V>', ext='exr', absname='testA_diffuse', padding=0, wild_name='testA_diffuse.u?_v?'",
+        "str": "name='testA_diffuse.', pattern='u<U>_v<V>', ext='exr', absname='testA_diffuse', padding=0, wild_name='testA_diffuse.u?_v?'",
+        "template": "d:/tex/testA_diffuse.u<U>_v<V>.exr",
+        "wild_name": "testA_diffuse.u?_v?"
+      },
+      "input": "d:/tex/testA_diffuse.u<U>_v<V>.exr"
+    },
+    {
+      "expected": {
+        "absname": "testA_diffuse",
+        "basename": "testA_diffuseu<U>_v<V>.exr",
+        "dirname": "d:/tex",
+        "ext": "exr",
+        "filename": "d:/tex/testA_diffuseu<U>_v<V>.exr",
+        "name": "testA_diffuse",
+        "other_pattern": null,
+        "padding": 0,
+        "pattern": "u<U>_v<V>",
+        "repr": "name='testA_diffuse', pattern='u<U>_v<V>', ext='exr', absname='testA_diffuse', padding=0, wild_name='testA_diffuseu?_v?'",
+        "str": "name='testA_diffuse', pattern='u<U>_v<V>', ext='exr', absname='testA_diffuse', padding=0, wild_name='testA_diffuseu?_v?'",
+        "template": "d:/tex/testA_diffuseu<U>_v<V>.exr",
+        "wild_name": "testA_diffuseu?_v?"
+      },
+      "input": "d:/tex/testA_diffuseu<U>_v<V>.exr"
+    },
+    {
+      "expected": {
+        "absname": "testA_diffuse",
+        "basename": "testA_u<U>_v<V>diffuse.exr",
+        "dirname": "d:/tex",
+        "ext": "exr",
+        "filename": "d:/tex/testA_u<U>_v<V>diffuse.exr",
+        "name": "testA_diffuse",
+        "other_pattern": null,
+        "padding": 0,
+        "pattern": "u<U>_v<V>",
+        "repr": "name='testA_diffuse', pattern='u<U>_v<V>', ext='exr', absname='testA_diffuse', padding=0, wild_name='testA_u?_v?diffuse'",
+        "str": "name='testA_diffuse', pattern='u<U>_v<V>', ext='exr', absname='testA_diffuse', padding=0, wild_name='testA_u?_v?diffuse'",
+        "template": "d:/tex/testA_u<U>_v<V>diffuse.exr",
+        "wild_name": "testA_u?_v?diffuse"
+      },
+      "input": "d:/tex/testA_u<U>_v<V>diffuse.exr"
+    },
+    {
+      "expected": {
+        "absname": "testA_",
+        "basename": "testA_u10_v1.exr",
+        "dirname": "d:/tex",
+        "ext": "exr",
+        "filename": "d:/tex/testA_u10_v1.exr",
+        "name": "testA_",
+        "other_pattern": null,
+        "padding": 0,
+        "pattern": "u10_v1",
+        "repr": "name='testA_', pattern='u10_v1', ext='exr', absname='testA_', padding=0, wild_name='testA_u??_v?'",
+        "str": "name='testA_', pattern='u10_v1', ext='exr', absname='testA_', padding=0, wild_name='testA_u??_v?'",
+        "template": "d:/tex/testA_u10_v1.exr",
+        "wild_name": "testA_u??_v?"
+      },
+      "input": "d:/tex/testA_u10_v1.exr"
+    },
+    {
+      "expected": {
+        "absname": "testA_",
+        "basename": "testA_U<U>_V<V>.exr",
+        "dirname": "d:/tex",
+        "ext": "exr",
+        "filename": "d:/tex/testA_U<U>_V<V>.exr",
+        "name": "testA_",
+        "other_pattern": null,
+        "padding": 0,
+        "pattern": "U<U>_V<V>",
+        "repr": "name='testA_', pattern='U<U>_V<V>', ext='exr', absname='testA_', padding=0, wild_name='testA_U?_V?'",
+        "str": "name='testA_', pattern='U<U>_V<V>', ext='exr', absname='testA_', padding=0, wild_name='testA_U?_V?'",
+        "template": "d:/tex/testA_U<U>_V<V>.exr",
+        "wild_name": "testA_U?_V?"
+      },
+      "input": "d:/tex/testA_U<U>_V<V>.exr"
+    }
+  ]
+}

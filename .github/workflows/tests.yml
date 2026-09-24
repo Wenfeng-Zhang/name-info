@@ -1,0 +1,90 @@
+name: tests
+
+# Test matrix: every supported Python on Linux, Windows and macOS, plus a job
+# that builds the wheel and uses it from an unrelated directory.
+#
+# Notes on the excludes below:
+#   * setup-python has no arm64 builds of 3.7 / 3.8, and macos-latest is arm64.
+#   * 3.7 is not installable on ubuntu-24.04 (no OpenSSL 1.1), which is why the
+#     Linux leg pins ubuntu-22.04. Everything from 3.9 up is also fine there.
+# If your repository is private and the job count matters, trim `python-version`
+# to the extremes plus one middle release (e.g. 3.7, 3.11, 3.14).
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  tests:
+    name: ${{ matrix.os }} / Python ${{ matrix.python-version }}
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os:
+          - ubuntu-22.04
+          - windows-latest
+          - macos-latest
+        python-version:
+          - "3.7"
+          - "3.8"
+          - "3.9"
+          - "3.10"
+          - "3.11"
+          - "3.12"
+          - "3.13"
+          - "3.14"
+        exclude:
+          - os: macos-latest
+            python-version: "3.7"
+          - os: macos-latest
+            python-version: "3.8"
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+
+      - name: Report interpreter
+        run: python -c "import platform, sys; print(sys.version); print(platform.platform())"
+
+      - name: Run the test suite
+        run: python -m unittest discover -v
+
+  package:
+    name: build and install the wheel
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Build the wheel
+        run: python -m pip wheel . --no-deps -w dist
+
+      - name: The wheel must ship the package and nothing else
+        run: |
+          python -c "
+          import glob, zipfile
+          path = glob.glob('dist/*.whl')[0]
+          names = sorted(zipfile.ZipFile(path).namelist())
+          print(path)
+          print('\n'.join(names))
+          assert all(n.startswith(('name_info/', 'name_info-')) for n in names), names
+          "
+
+      - name: Install the wheel and use it from another directory
+        run: |
+          python -m pip install dist/*.whl
+          cd "$RUNNER_TEMP"
+          python -c "import name_info; print(name_info.__version__, name_info.__file__)"
+          python -m name_info shot.1001.exr

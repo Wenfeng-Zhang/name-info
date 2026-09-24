@@ -1,0 +1,52 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "name-info"
+description = "Parse VFX file names and frame sequences into structured information."
+readme = "README.md"
+requires-python = ">=3.7"
+authors = [
+    { name = "Wenfeng Zhang", email = "zwf.vfx@foxmail.com" },
+]
+keywords = [
+    "vfx",
+    "filename",
+    "file-sequence",
+    "frame",
+    "padding",
+    "udim",
+    "uv-tile",
+    "pipeline",
+]
+license = { text = "MIT" }
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.7",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Topic :: Multimedia :: Graphics",
+]
+dependencies = []
+dynamic = ["version"]
+
+[project.optional-dependencies]
+# 测试只依赖标准库；保留空组是为了说明“没有第三方测试依赖”。
+dev = []
+
+# Flat layout: the package sits next to pyproject.toml. The "include" list keeps
+# setuptools from picking up tests/ as a package (it has an __init__.py so that
+# `unittest discover` works from the project root).
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["name_info*"]
+
+[tool.setuptools.dynamic]
+version = { attr = "name_info.__version__" }

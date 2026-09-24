@@ -79,6 +79,10 @@ First release of the restructured project.
   matter on slow networks in China) and replaced with a neutral note about the
   local matrix script; the mirror default now lives only in
   `tools/run_matrix.ps1`.
+- README: added a "Why: one sequence, many spellings" section that shows
+  `d:/a.%04d.exr`, `d:/a.####.exr` and `d:/a.1001.exr` resolving to one sequence
+  identity, with the caveat that `template` keeps the spelling it found;
+  `test_one_sequence_many_spellings` locks the promise in.
 
 ### Removed
 

@@ -13,6 +13,46 @@
 `NameInfo` 接收一个文件名（或完整路径），判断帧号模式在哪、扩展名是什么，
 以及如何把路径还原成序列模板。它不访问文件系统，因此可以直接用于尚不存在的路径。
 
+## 为什么：同一个序列，多种写法
+
+同一个序列会因为出处不同而有好几种写法：
+
+| 写法 | 出处 |
+| --- | --- |
+| `d:/a.1001.exr` | 渲染器实际写到磁盘的某一帧 |
+| `d:/a.%04d.exr` | 存进数据库的 printf 模板 |
+| `d:/a.####.exr` | Houdini 的帧号记号 |
+
+按字符串直接比较，这是三个不同的东西 —— 于是拷贝、改名、交给渲染器时就出错。
+`name_info` 把每种写法都解析成**同一个序列身份**：
+
+```python
+from name_info import NameInfo
+
+spellings = ["d:/a.%04d.exr", "d:/a.####.exr", "d:/a.1001.exr"]
+
+for path in spellings:
+    info = NameInfo(path)
+    print(info.pattern, "->", info.absname, info.padding, info.wild_name)
+# %04d -> a 4 a.????
+# #### -> a 4 a.????
+# 1001 -> a 4 a.????
+
+# 一条序列一个键；写法本身故意不参与。
+keys = {(i.dirname, i.absname, i.ext) for i in map(NameInfo, spellings)}
+assert keys == {("d:/", "a", "exr")}     # 三条都属于同一个序列
+```
+
+`pattern` 记录的是“**怎么写的**”，所以故意不同；而说明“**是哪个序列**”的
+`dirname`、`absname`、`padding`、`ext`、`wild_name` 完全一致。排序、分组、比对、
+做缓存都该用这些字段 —— 也是拷贝文件或交给渲染器之前必须先确认的东西。
+
+一个需要注意的地方：`template` 会保留它看到的写法，所以 `####` 仍是
+`d:/a.####.exr`，而 `1001` 会变成 `d:/a.%04d.exr`。若整条序列需要统一成一个模板，
+请用 `absname`、`padding`、`ext` 自己拼，而不要直接取第一个 `template`。
+
+## 快速上手
+
 ```python
 from name_info import NameInfo
 

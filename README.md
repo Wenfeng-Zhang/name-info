@@ -15,6 +15,49 @@ pattern is, what the extension is, and how to rewrite the path back into a
 sequence template. It never touches the file system, so it is safe to run on
 paths that do not exist yet.
 
+## Why: one sequence, many spellings
+
+The same sequence reaches you under several spellings, depending on who wrote it:
+
+| Spelling | Where it comes from |
+| --- | --- |
+| `d:/a.1001.exr` | a frame a renderer actually wrote to disk |
+| `d:/a.%04d.exr` | the printf template stored in a database |
+| `d:/a.####.exr` | Houdini's frame token |
+
+Compared as plain strings these look like three different things — which is how
+copying, renaming or handing them to a renderer goes wrong. `name_info` parses
+every spelling into the same sequence identity:
+
+```python
+from name_info import NameInfo
+
+spellings = ["d:/a.%04d.exr", "d:/a.####.exr", "d:/a.1001.exr"]
+
+for path in spellings:
+    info = NameInfo(path)
+    print(info.pattern, "->", info.absname, info.padding, info.wild_name)
+# %04d -> a 4 a.????
+# #### -> a 4 a.????
+# 1001 -> a 4 a.????
+
+# One key per sequence; the spelling is deliberately not part of it.
+keys = {(i.dirname, i.absname, i.ext) for i in map(NameInfo, spellings)}
+assert keys == {("d:/", "a", "exr")}     # all three are the same sequence
+```
+
+`pattern` records *how* the sequence was written, so it differs on purpose.
+Everything that says *which* sequence it is — `dirname`, `absname`, `padding`,
+`ext`, `wild_name` — comes out identical. Those are the fields to sort, group,
+compare and cache on before copying files around or feeding a renderer.
+
+One caveat: `template` keeps the spelling it found, so `####` stays
+`d:/a.####.exr` while `1001` becomes `d:/a.%04d.exr`. When a whole sequence needs
+one canonical template, build it from `absname`, `padding` and `ext` rather than
+taking the first `template` you happen to see.
+
+## Quick start
+
 ```python
 from name_info import NameInfo
 

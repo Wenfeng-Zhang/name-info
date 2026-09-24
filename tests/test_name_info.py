@@ -209,6 +209,22 @@ class PlatformPathTests(unittest.TestCase):
 
 
 class NameInfoTests(unittest.TestCase):
+    def test_one_sequence_many_spellings(self):
+        """%04d、####、具体帧号与 $F4 指向同一个序列（对应 README 的“为什么”一节）。"""
+        spellings = ("d:/a.%04d.exr", "d:/a.####.exr", "d:/a.1001.exr", "d:/a.$F4.exr")
+        infos = [NameInfo(path) for path in spellings]
+        self.assertEqual({(i.dirname, i.absname, i.ext) for i in infos},
+                         {("d:/", "a", "exr")})
+        for info in infos:
+            self.assertEqual(info.absname, "a")
+            self.assertEqual(info.padding, 4)
+            self.assertEqual(info.wild_name, "a.????")
+        # 写法本身（pattern）故意不同；template 保留各自的风格，不做归一。
+        self.assertEqual([info.pattern for info in infos],
+                         ["%04d", "####", "1001", "$F4"])
+        self.assertEqual(NameInfo("d:/a.1001.exr").template, "d:/a.%04d.exr")
+        self.assertEqual(NameInfo("d:/a.####.exr").template, "d:/a.####.exr")
+
     def test_path_normalization(self):
         value = NameInfo(r"  D:\mixed/path\shot.1001.exr  ")
         self.assertEqual(value.filename, "D:/mixed/path/shot.1001.exr")

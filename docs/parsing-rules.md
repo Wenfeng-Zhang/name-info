@@ -15,12 +15,19 @@ dirname, basename = os.path.split(filename)
 
 so mixed separators and surrounding whitespace never reach the parser.
 
-`dirname` and `basename` come from `os.path`, so Windows-specific path forms
-behave differently elsewhere: `os.path.split("D:shot.1001.exr")` gives
-`("D:", "shot.1001.exr")` on Windows but `("", "D:shot.1001.exr")` on POSIX,
-which changes `name`, `absname`, `wild_name` and `template` as well. Both
-behaviours are asserted in `PlatformPathTests`; those inputs are deliberately
-kept out of the snapshot fixture so that every recorded case is platform
+`dirname` and `basename` come from `os.path`, so two Windows-flavoured path
+forms behave differently elsewhere. `PlatformPathTests` asserts both sides:
+
+* **Drive-relative paths** — `os.path.split("D:shot.1001.exr")` gives
+  `("D:", "shot.1001.exr")` on Windows but `("", "D:shot.1001.exr")` on POSIX,
+  which changes `name`, `absname`, `wild_name` and `template` as well.
+* **Files directly in a drive root** — `os.path.split("D:/a.1001.exr")` gives
+  `dirname` `"D:/"` on Windows but `"D:"` on POSIX. Only `dirname` differs;
+  `basename`, `absname`, `padding` and `template` stay identical.
+
+Because a drive-root `dirname` is not platform independent, group files into
+sequences on `absname` and `ext` rather than on a raw `dirname` string. None of
+these inputs are in the snapshot fixture, so every recorded case is platform
 independent.
 
 ## 2. Extension resolution (`_split_ext`)

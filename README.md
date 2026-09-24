@@ -21,9 +21,9 @@ The same sequence reaches you under several spellings, depending on who wrote it
 
 | Spelling | Where it comes from |
 | --- | --- |
-| `d:/a.1001.exr` | a frame a renderer actually wrote to disk |
-| `d:/a.%04d.exr` | the printf template stored in a database |
-| `d:/a.####.exr` | Houdini's frame token |
+| `d:/render/a.1001.exr` | a frame a renderer actually wrote to disk |
+| `d:/render/a.%04d.exr` | the printf template stored in a database |
+| `d:/render/a.####.exr` | Houdini's frame token |
 
 Compared as plain strings these look like three different things — which is how
 copying, renaming or handing them to a renderer goes wrong. `name_info` parses
@@ -32,7 +32,7 @@ every spelling into the same sequence identity:
 ```python
 from name_info import NameInfo
 
-spellings = ["d:/a.%04d.exr", "d:/a.####.exr", "d:/a.1001.exr"]
+spellings = ["d:/render/a.%04d.exr", "d:/render/a.####.exr", "d:/render/a.1001.exr"]
 
 for path in spellings:
     info = NameInfo(path)
@@ -43,7 +43,7 @@ for path in spellings:
 
 # One key per sequence; the spelling is deliberately not part of it.
 keys = {(i.dirname, i.absname, i.ext) for i in map(NameInfo, spellings)}
-assert keys == {("d:/", "a", "exr")}     # all three are the same sequence
+assert keys == {("d:/render", "a", "exr")}     # all three are the same sequence
 ```
 
 `pattern` records *how* the sequence was written, so it differs on purpose.
@@ -52,7 +52,7 @@ Everything that says *which* sequence it is — `dirname`, `absname`, `padding`,
 compare and cache on before copying files around or feeding a renderer.
 
 One caveat: `template` keeps the spelling it found, so `####` stays
-`d:/a.####.exr` while `1001` becomes `d:/a.%04d.exr`. When a whole sequence needs
+`d:/render/a.####.exr` while `1001` becomes `d:/render/a.%04d.exr`. When a whole sequence needs
 one canonical template, build it from `absname`, `padding` and `ext` rather than
 taking the first `template` you happen to see.
 
@@ -220,6 +220,11 @@ Run the full interpreter matrix (creates `.venv37`, `.venv39`, `.venv310`,
 powershell -ExecutionPolicy Bypass -File tools/run_matrix.ps1
 ```
 
+Before pushing anything that touches paths or tests, run
+`python tools/check_posix.py` — it re-runs the suite with `os.path` swapped
+for `posixpath`, so Windows-only assumptions are caught locally instead of
+by CI on Linux and macOS.
+
 The script also points each environment's pip at a mirror, so that manual
 installs inside those venvs work on slow networks; the default lives in the
 script itself and can be overridden or switched off with `-IndexUrl`.
@@ -281,6 +286,7 @@ name_info/
 ├── tools/regenerate_snapshot.py  # snapshot/digest regeneration
 ├── tools/build_example_docs.py   # generates docs/examples*.md from the code
 ├── tools/run_matrix.ps1          # local multi-interpreter test matrix
+├── tools/check_posix.py          # runs the suite with os.path = posixpath
 ├── .github/workflows/tests.yml   # CI: 3 OS x Python 3.7-3.14, wheel smoke test
 ├── docs/parsing-rules.md         # detailed parsing rules
 ├── docs/examples.md              # every example next to its real output

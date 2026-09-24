@@ -207,14 +207,27 @@ class PlatformPathTests(unittest.TestCase):
         self.assertEqual(value.name, "shot.")
         self.assertEqual(value.template, "//server/share/shot.%04d.exr")
 
+    def test_drive_root_path(self):
+        """盘符根目录下的文件：ntpath 保留 `D:/`，posixpath 只给 `D:`。"""
+        value = NameInfo("D:/a.1001.exr")
+        if os.name == "nt":
+            self.assertEqual(value.dirname, "D:/")
+        else:
+            self.assertEqual(value.dirname, "D:")
+        # 只有 dirname 不同；其余字段（含 template）两个平台一致。
+        self.assertEqual(value.basename, "a.1001.exr")
+        self.assertEqual(value.absname, "a")
+        self.assertEqual(value.padding, 4)
+        self.assertEqual(value.template, "D:/a.%04d.exr")
+
 
 class NameInfoTests(unittest.TestCase):
     def test_one_sequence_many_spellings(self):
         """%04d、####、具体帧号与 $F4 指向同一个序列（对应 README 的“为什么”一节）。"""
-        spellings = ("d:/a.%04d.exr", "d:/a.####.exr", "d:/a.1001.exr", "d:/a.$F4.exr")
+        spellings = ("d:/render/a.%04d.exr", "d:/render/a.####.exr", "d:/render/a.1001.exr", "d:/render/a.$F4.exr")
         infos = [NameInfo(path) for path in spellings]
         self.assertEqual({(i.dirname, i.absname, i.ext) for i in infos},
-                         {("d:/", "a", "exr")})
+                         {("d:/render", "a", "exr")})
         for info in infos:
             self.assertEqual(info.absname, "a")
             self.assertEqual(info.padding, 4)
@@ -222,8 +235,8 @@ class NameInfoTests(unittest.TestCase):
         # 写法本身（pattern）故意不同；template 保留各自的风格，不做归一。
         self.assertEqual([info.pattern for info in infos],
                          ["%04d", "####", "1001", "$F4"])
-        self.assertEqual(NameInfo("d:/a.1001.exr").template, "d:/a.%04d.exr")
-        self.assertEqual(NameInfo("d:/a.####.exr").template, "d:/a.####.exr")
+        self.assertEqual(NameInfo("d:/render/a.1001.exr").template, "d:/render/a.%04d.exr")
+        self.assertEqual(NameInfo("d:/render/a.####.exr").template, "d:/render/a.####.exr")
 
     def test_path_normalization(self):
         value = NameInfo(r"  D:\mixed/path\shot.1001.exr  ")

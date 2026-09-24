@@ -14,11 +14,19 @@ dirname, basename = os.path.split(filename)
 
 因此混合斜杠和首尾空白不会进入解析逻辑。
 
-`dirname` 与 `basename` 来自 `os.path`，所以 Windows 专属路径形式在别处行为不同：
-`os.path.split("D:shot.1001.exr")` 在 Windows 上得到 `("D:", "shot.1001.exr")`，
-在 POSIX 上得到 `("", "D:shot.1001.exr")`，`name`、`absname`、`wild_name`、
-`template` 也会随之不同。两种行为都由 `PlatformPathTests` 断言；这两条输入被排除在
-快照 fixture 之外，以保证记录下来的每一条用例都与平台无关。
+`dirname` 与 `basename` 来自 `os.path`，所以有两种 Windows 风格路径在别处行为不同，
+`PlatformPathTests` 对两种平台都做了断言：
+
+* **盘符相对路径** —— `os.path.split("D:shot.1001.exr")` 在 Windows 上得到
+  `("D:", "shot.1001.exr")`，在 POSIX 上得到 `("", "D:shot.1001.exr")`，
+  `name`、`absname`、`wild_name`、`template` 都会随之不同。
+* **盘符根目录下的文件** —— `os.path.split("D:/a.1001.exr")` 的 `dirname` 在 Windows
+  上是 `"D:/"`，在 POSIX 上是 `"D:"`。只有 `dirname` 不同；
+  `basename`、`absname`、`padding`、`template` 完全一致。
+
+因为盘符根目录的 `dirname` 不具备跨平台一致性，给文件分组时请用 `absname` + `ext`
+作为序列键，而不要直接用 `dirname` 字符串。这些输入都不在快照 fixture 里，
+因此记录下来的每一条用例都与平台无关。
 
 ## 2. 扩展名解析（`_split_ext`）
 

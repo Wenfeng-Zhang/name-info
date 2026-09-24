@@ -83,6 +83,12 @@ First release of the restructured project.
   `d:/a.%04d.exr`, `d:/a.####.exr` and `d:/a.1001.exr` resolving to one sequence
   identity, with the caveat that `template` keeps the spelling it found;
   `test_one_sequence_many_spellings` locks the promise in.
+- Fixed `test_one_sequence_many_spellings` and the matching README example:
+  they used `d:/a.*`, whose `dirname` is `"d:/"` on Windows but `"d:"` on
+  POSIX, so Linux and macOS failed. Examples now use `d:/render/a.*`, and
+  `PlatformPathTests.test_drive_root_path` pins the drive-root difference.
+- Added `tools/check_posix.py`, which re-runs the suite with `os.path` set to
+  `posixpath` so such mistakes are caught before pushing.
 
 ### Removed
 

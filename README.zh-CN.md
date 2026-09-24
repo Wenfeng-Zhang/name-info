@@ -19,9 +19,9 @@
 
 | 写法 | 出处 |
 | --- | --- |
-| `d:/a.1001.exr` | 渲染器实际写到磁盘的某一帧 |
-| `d:/a.%04d.exr` | 存进数据库的 printf 模板 |
-| `d:/a.####.exr` | Houdini 的帧号记号 |
+| `d:/render/a.1001.exr` | 渲染器实际写到磁盘的某一帧 |
+| `d:/render/a.%04d.exr` | 存进数据库的 printf 模板 |
+| `d:/render/a.####.exr` | Houdini 的帧号记号 |
 
 按字符串直接比较，这是三个不同的东西 —— 于是拷贝、改名、交给渲染器时就出错。
 `name_info` 把每种写法都解析成**同一个序列身份**：
@@ -29,7 +29,7 @@
 ```python
 from name_info import NameInfo
 
-spellings = ["d:/a.%04d.exr", "d:/a.####.exr", "d:/a.1001.exr"]
+spellings = ["d:/render/a.%04d.exr", "d:/render/a.####.exr", "d:/render/a.1001.exr"]
 
 for path in spellings:
     info = NameInfo(path)
@@ -40,7 +40,7 @@ for path in spellings:
 
 # 一条序列一个键；写法本身故意不参与。
 keys = {(i.dirname, i.absname, i.ext) for i in map(NameInfo, spellings)}
-assert keys == {("d:/", "a", "exr")}     # 三条都属于同一个序列
+assert keys == {("d:/render", "a", "exr")}     # 三条都属于同一个序列
 ```
 
 `pattern` 记录的是“**怎么写的**”，所以故意不同；而说明“**是哪个序列**”的
@@ -48,7 +48,7 @@ assert keys == {("d:/", "a", "exr")}     # 三条都属于同一个序列
 做缓存都该用这些字段 —— 也是拷贝文件或交给渲染器之前必须先确认的东西。
 
 一个需要注意的地方：`template` 会保留它看到的写法，所以 `####` 仍是
-`d:/a.####.exr`，而 `1001` 会变成 `d:/a.%04d.exr`。若整条序列需要统一成一个模板，
+`d:/render/a.####.exr`，而 `1001` 会变成 `d:/render/a.%04d.exr`。若整条序列需要统一成一个模板，
 请用 `absname`、`padding`、`ext` 自己拼，而不要直接取第一个 `template`。
 
 ## 快速上手
@@ -212,6 +212,10 @@ python tests/test_name_info.py
 powershell -ExecutionPolicy Bypass -File tools/run_matrix.ps1
 ```
 
+凡是改动涉及路径或测试，push 之前先跑 `python tools/check_posix.py`：
+它把 `os.path` 换成 `posixpath` 重跑一遍，能在本地就抓出「只对 Windows 成立」
+的假设，而不是等 CI 在 Linux / macOS 上报错。
+
 脚本还会把每个虚拟环境的 pip 指向一个镜像（默认是清华大学镜像站），方便网络不畅时
 在 venv 里手动装包；可以用 `-IndexUrl` 覆盖或关闭。
 
@@ -269,6 +273,7 @@ name_info/
 ├── tools/regenerate_snapshot.py  # 快照与指纹再生成
 ├── tools/build_example_docs.py   # 由代码生成 docs/examples*.md
 ├── tools/run_matrix.ps1          # 本地多解释器测试矩阵
+├── tools/check_posix.py          # 用 os.path = posixpath 重跑测试
 ├── .github/workflows/tests.yml   # CI：3 个系统 x Python 3.7-3.14 + wheel 冒烟
 ├── docs/parsing-rules.md         # 英文解析规则细节
 ├── docs/examples.zh-CN.md        # 每条示例旁边就是真实输出

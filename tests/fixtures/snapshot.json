@@ -831,6 +831,24 @@
     },
     {
       "expected": {
+        "absname": "a",
+        "basename": "a.1001.exr",
+        "dirname": "D:/",
+        "ext": "exr",
+        "filename": "D:/a.1001.exr",
+        "name": "a.",
+        "other_pattern": null,
+        "padding": 4,
+        "pattern": "1001",
+        "repr": "name='a.', pattern='1001', ext='exr', absname='a', padding=4, wild_name='a.????'",
+        "str": "name='a.', pattern='1001', ext='exr', absname='a', padding=4, wild_name='a.????'",
+        "template": "D:/a.%04d.exr",
+        "wild_name": "a.????"
+      },
+      "input": "D:/a.1001.exr"
+    },
+    {
+      "expected": {
         "absname": "shot",
         "basename": "shot.1001.exr",
         "dirname": "D:/mixed/path",
@@ -846,6 +864,24 @@
         "wild_name": "shot.????"
       },
       "input": "  D:\\mixed/path\\shot.1001.exr  "
+    },
+    {
+      "expected": {
+        "absname": "shot",
+        "basename": "shot.1001.exr",
+        "dirname": "//server/share/",
+        "ext": "exr",
+        "filename": "//server/share/shot.1001.exr",
+        "name": "shot.",
+        "other_pattern": null,
+        "padding": 4,
+        "pattern": "1001",
+        "repr": "name='shot.', pattern='1001', ext='exr', absname='shot', padding=4, wild_name='shot.????'",
+        "str": "name='shot.', pattern='1001', ext='exr', absname='shot', padding=4, wild_name='shot.????'",
+        "template": "//server/share/shot.%04d.exr",
+        "wild_name": "shot.????"
+      },
+      "input": "//server/share/shot.1001.exr"
     },
     {
       "expected": {

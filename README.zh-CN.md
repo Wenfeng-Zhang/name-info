@@ -213,8 +213,9 @@ powershell -ExecutionPolicy Bypass -File tools/run_matrix.ps1
 ```
 
 凡是改动涉及路径或测试，push 之前先跑 `python tools/check_posix.py`：
-它把 `os.path` 换成 `posixpath` 重跑一遍，能在本地就抓出「只对 Windows 成立」
-的假设，而不是等 CI 在 Linux / macOS 上报错。
+它把 `os.path` 换成 `posixpath` 重跑一遍，并在全部记录用例上验证「两个平台之间
+只有 `dirname` 会变」，从而在本地就抓出「只对 Windows 成立」的假设，
+而不是等 CI 在 Linux / macOS 上报错。
 
 脚本还会把每个虚拟环境的 pip 指向一个镜像（默认是清华大学镜像站），方便网络不畅时
 在 venv 里手动装包；可以用 `-IndexUrl` 覆盖或关闭。

@@ -35,20 +35,21 @@ from name_info.examples import file_names
 
 
 # 逐字段快照的字段顺序，同时也是 fixture 中 expected 的字段顺序。
-# 边界用例里刻意不放依赖 os.path 的输入（"D:shot.1001.exr"、UNC 路径见
-# 文件末尾的 PlatformPathTests），因此快照与指纹在所有平台都完全一致。
+# 路径头部（dirname）按 portable_view 归一后比较，其余字段逐字节比对；
+# 只有 "D:shot.1001.exr" 这类盘符相对路径连 basename 都会变，因此它留在
+# PlatformPathTests 里，不进 fixture。
 FIELDS = (
     "filename", "basename", "dirname", "name", "pattern", "ext",
     "absname", "padding", "wild_name", "other_pattern", "template",
 )
 
 EXAMPLES_COUNT = 60
-EDGES_COUNT = 120
+EDGES_COUNT = 122
 MATRIX_COUNT = 2016
 
 APPROVED_DIGESTS = {
     "examples": "87159d4f973dc594b3b2ac1c78d4bfe2d8edf2868b5be298fa096a6d6b29b086",
-    "edges": "1d74772dcc760933490d12ae4194c3e1bcf681eca269aeba3816e6cdbe80e0e2",
+    "edges": "ebde3f32828425dca1947f0bcb8be0639f36fc2c1c3e3d4ce553995f9fdec2e3",
     "matrix": "95d141113362328960a1a067ddceb20dc168471fa093a5acbaca1e0e70f04f40",
 }
 
@@ -62,12 +63,25 @@ def snapshot(filename):
     return result
 
 
+# 路径头部（dirname）的平台差异：ntpath 给 "D:/" 与 "//server/share/"，
+# posixpath 给 "D:" 与 "//server/share"。快照与指纹都按「去掉尾斜杠」的归一形式
+# 比较，平台无关；精确值由 PlatformPathTests 按平台断言。
+PLATFORM_FIELD = "dirname"
+
+
+def portable_view(fields):
+    """把平台相关的路径头部归一成平台无关形式。"""
+    view = dict(fields)
+    view[PLATFORM_FIELD] = (view[PLATFORM_FIELD] or "").rstrip("/")
+    return view
+
+
 def cases_digest(filenames):
     """计算 (条数, sha256)，逐字段锁定全部解析结果，且与平台无关。"""
     hasher = hashlib.sha256()
     count = 0
     for filename in filenames:
-        data = snapshot(filename)
+        data = portable_view(snapshot(filename))
         hasher.update(
             json.dumps(data, sort_keys=True, ensure_ascii=True).encode("ascii")
         )
@@ -94,9 +108,9 @@ def edge_cases():
         "a_%04d_b_%04d.exr", "a_%04d_b_####.exr",
         "a_<udim>_b_<UDIM>.exr", "a_1001.exr.tx", "a_1001.foo.tx",
         "a_1001.bgeo.sc.tx", "a_1001.TIF.TX", "a_1001.tx",
-        "/shot.1001.exr",
+        "/shot.1001.exr", "D:/a.1001.exr",
         r"  D:\mixed/path\shot.1001.exr  ",
-        "D://folder///shot.1001.exr",
+        "//server/share/shot.1001.exr", "D://folder///shot.1001.exr",
         "D:/folder.with.1001/plain.exr",
         "\u8d44\u4ea7_\u8d34\u56fe.1001.exr", "tex.\uff11\uff10\uff10\uff11.exr",
         # 占位符也会命中普通单词；这些输入把“已知限制”本身锁进快照。
@@ -138,7 +152,15 @@ class SnapshotTests(unittest.TestCase):
         cls.baseline = json.loads(FIXTURE.read_text(encoding="utf-8"))
 
     def assert_snapshot(self, case):
-        self.assertEqual(snapshot(case["input"]), case["expected"])
+        """逐字段比对；路径头部按去尾斜杠的归一形式比较。
+
+        dirname 来自 os.path，Windows 与 POSIX 的写法本就不同（"D:/" 与 "D:"、
+        "//server/share/" 与 "//server/share"），不该强迫 Linux/macOS 使用 Windows
+        形式。basename 及其之后的一切必须逐字节一致；精确的路径头部值由
+        PlatformPathTests 按平台断言。
+        """
+        self.assertEqual(portable_view(snapshot(case["input"])),
+                         portable_view(case["expected"]))
 
     def test_examples_snapshot(self):
         cases = self.baseline["examples"]
@@ -173,9 +195,11 @@ class SnapshotTests(unittest.TestCase):
 
 
 class PlatformPathTests(unittest.TestCase):
-    """Windows 专属路径形式：os.path 本身就不同，因此单独按平台断言。
+    """路径头部按平台断言：os.path 本身就不同。
 
-    这些输入不进快照也不进指纹，理由见 FIELDS 处的注释。
+    快照与指纹把路径头部按「去掉尾斜杠」的归一形式比较（见 portable_view），
+    这里则把两种平台各自的精确写法记录下来。D:shot.1001.exr 连 basename 都会
+    变，因此它不能进入快照 fixture。
     """
 
     def test_drive_relative_path(self):

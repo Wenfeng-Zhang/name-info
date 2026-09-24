@@ -89,6 +89,13 @@ First release of the restructured project.
   `PlatformPathTests.test_drive_root_path` pins the drive-root difference.
 - Added `tools/check_posix.py`, which re-runs the suite with `os.path` set to
   `posixpath` so such mistakes are caught before pushing.
+- The path *head* is now treated as platform specific instead of being forced to a
+  Windows form everywhere: snapshots and digests strip trailing slashes from
+  `dirname` (`D:/` equals `D:`) while `basename` and everything after it must still
+  match byte for byte, and `PlatformPathTests` pins the exact per-platform values.
+  `D:/a.1001.exr` and the UNC path returned to the edge cases (122 total), and
+  `tools/check_posix.py` verifies across every recorded input that only `dirname`
+  differs between the two path flavours.
 
 ### Removed
 

@@ -1,23 +1,24 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-"""Run the suite with ``os.path`` swapped for ``posixpath``.
+"""Check the suite against POSIX path semantics without leaving Windows.
 
     python tools/check_posix.py
 
 Development happens on Windows, so a test that quietly relies on ``ntpath``
-behaviour only fails once CI reaches Linux or macOS — which is exactly how
-``test_one_sequence_many_spellings`` slipped through. This script swaps
-``os.path`` inside the ``name_info.name_info`` module for ``posixpath`` and runs
-the suite, reproducing most such failures locally in a second.
+behaviour only fails once CI reaches Linux or macOS. Two checks run here:
 
-Run it before pushing any change that touches paths, tests or fixtures.
+1. the test suite, with ``os.path`` inside ``name_info.name_info`` swapped for
+   ``posixpath``;
+2. a cross-platform contract check over every recorded input (examples, edge
+   cases and the matrix): the path *head* — ``dirname`` — is allowed to differ
+   between the two flavours, while everything from ``basename`` onwards must be
+   byte-identical.
 
-It is a heuristic, not a substitute for CI: only path semantics change. Real
-differences in file systems, permissions, line endings or the interpreter
-itself are not covered. ``PlatformPathTests`` and ``CommandLineTests`` are
-skipped on purpose — the former asserts the *current* platform, and the latter
-spawns a real subprocess, so the swap would only confuse them.
+Run it before pushing any change that touches paths, tests or fixtures. It is a
+heuristic, not a substitute for CI: only path semantics change here, so file
+systems, permissions, line endings and interpreter differences remain covered by
+CI alone.
 """
 
 import os
@@ -38,6 +39,9 @@ SUITE = (
     "test_name_info.DocumentationTests",
 )
 
+# The path head is platform specific; every other field must be portable.
+PLATFORM_FIELD = "dirname"
+
 
 class PosixOs(object):
     """``os`` with only its ``path`` module replaced."""
@@ -48,21 +52,65 @@ class PosixOs(object):
         return getattr(os, name)
 
 
+def contract_check(implementation):
+    """Compare every recorded input under both path flavours."""
+    import test_name_info
+
+    inputs = list(test_name_info.file_names)
+    inputs.extend(test_name_info.edge_cases())
+    inputs.extend(test_name_info.matrix_cases())
+
+    real_os = implementation.os
+    try:
+        windows = {name: test_name_info.snapshot(name) for name in inputs}
+        implementation.os = PosixOs()
+        posix = {name: test_name_info.snapshot(name) for name in inputs}
+    finally:
+        implementation.os = real_os
+
+    differences = []
+    for name in inputs:
+        for field, value in windows[name].items():
+            if field == PLATFORM_FIELD:
+                continue
+            if value != posix[name][field]:
+                differences.append((name, field, value, posix[name][field]))
+
+    print()
+    print("cross-platform contract over {0} inputs".format(len(inputs)))
+    if differences:
+        print("  {0} difference(s) outside {1!r}:".format(
+            len(differences), PLATFORM_FIELD))
+        for name, field, windows_value, posix_value in differences[:20]:
+            print("    {0}\n      windows {1}={2!r}\n      posix   {1}={3!r}".format(
+                name, field, windows_value, posix_value))
+    else:
+        print("  ok: only {0!r} differs between windows and posix".format(
+            PLATFORM_FIELD))
+    return not differences
+
+
 def main():
     import name_info.name_info as implementation
 
-    original = implementation.os
+    real_os = implementation.os
     implementation.os = PosixOs()
     try:
         suite = unittest.TestLoader().loadTestsFromNames(SUITE)
-        result = unittest.TextTestRunner(verbosity=2).run(suite)
+        result = unittest.TextTestRunner(verbosity=1).run(suite)
     finally:
-        implementation.os = original
+        implementation.os = real_os
 
     print()
-    print("posix-simulated run: {0} tests, {1} failure(s), {2} error(s)".format(
+    print("posix-simulated suite: {0} tests, {1} failure(s), {2} error(s)".format(
         suite.countTestCases(), len(result.failures), len(result.errors)))
-    return 0 if result.wasSuccessful() else 1
+
+    contract_ok = contract_check(implementation)
+
+    if result.wasSuccessful() and contract_ok:
+        print("all checks passed")
+        return 0
+    return 1
 
 
 if __name__ == "__main__":

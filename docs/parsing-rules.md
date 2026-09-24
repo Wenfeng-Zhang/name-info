@@ -15,20 +15,28 @@ dirname, basename = os.path.split(filename)
 
 so mixed separators and surrounding whitespace never reach the parser.
 
-`dirname` and `basename` come from `os.path`, so two Windows-flavoured path
-forms behave differently elsewhere. `PlatformPathTests` asserts both sides:
+`dirname` comes from `os.path`, so the **path head is platform specific** — that
+is expected, not a defect: Linux and macOS report their own form rather than a
+Windows one. Everything from `basename` onwards stays portable.
+`PlatformPathTests` pins the three shapes where the head differs:
 
 * **Drive-relative paths** — `os.path.split("D:shot.1001.exr")` gives
-  `("D:", "shot.1001.exr")` on Windows but `("", "D:shot.1001.exr")` on POSIX,
-  which changes `name`, `absname`, `wild_name` and `template` as well.
+  `("D:", "shot.1001.exr")` on Windows but `("", "D:shot.1001.exr")` on POSIX.
+  Here even `basename` differs, so `name`, `absname`, `wild_name` and `template`
+  differ with it; such an input cannot join the cross-platform contract.
 * **Files directly in a drive root** — `os.path.split("D:/a.1001.exr")` gives
   `dirname` `"D:/"` on Windows but `"D:"` on POSIX. Only `dirname` differs;
-  `basename`, `absname`, `padding` and `template` stay identical.
+  `basename`, `absname`, `padding` and `template` are identical.
+* **UNC paths** — `ntpath` keeps the trailing slash of `//server/share/`,
+  `posixpath` drops it. Again only `dirname` differs.
 
-Because a drive-root `dirname` is not platform independent, group files into
-sequences on `absname` and `ext` rather than on a raw `dirname` string. None of
-these inputs are in the snapshot fixture, so every recorded case is platform
-independent.
+The snapshot fixture therefore treats `dirname` as platform specific but
+spelling-independent: trailing slashes are stripped before comparing, so `D:/`
+and `D:` count as equal, while every other field must match byte for byte. The
+exact head is pinned per platform in `PlatformPathTests`, and
+`tools/check_posix.py` asserts that nothing else differs across all recorded
+inputs. When you need a key to group files across platforms,
+use `absname` + `ext` rather than a raw `dirname` string.
 
 ## 2. Extension resolution (`_split_ext`)
 

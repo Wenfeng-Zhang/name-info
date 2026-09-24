@@ -222,8 +222,9 @@ powershell -ExecutionPolicy Bypass -File tools/run_matrix.ps1
 
 Before pushing anything that touches paths or tests, run
 `python tools/check_posix.py` — it re-runs the suite with `os.path` swapped
-for `posixpath`, so Windows-only assumptions are caught locally instead of
-by CI on Linux and macOS.
+for `posixpath`, and additionally verifies over every recorded input that
+only `dirname` changes between the two path flavours. Windows-only
+assumptions are then caught locally instead of by CI on Linux and macOS.
 
 The script also points each environment's pip at a mirror, so that manual
 installs inside those venvs work on slow networks; the default lives in the

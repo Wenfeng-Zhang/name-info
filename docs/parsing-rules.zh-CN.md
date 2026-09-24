@@ -14,19 +14,25 @@ dirname, basename = os.path.split(filename)
 
 因此混合斜杠和首尾空白不会进入解析逻辑。
 
-`dirname` 与 `basename` 来自 `os.path`，所以有两种 Windows 风格路径在别处行为不同，
-`PlatformPathTests` 对两种平台都做了断言：
+`dirname` 来自 `os.path`，所以 **路径头部本就是平台相关的** —— 这是预期行为，
+不是缺陷：Linux 和 macOS 会报出它们自己的形式，而不是模仿 Windows。
+从 `basename` 开始的一切则是可移植的。`PlatformPathTests` 锁住了路径头部不同的三种形态：
 
 * **盘符相对路径** —— `os.path.split("D:shot.1001.exr")` 在 Windows 上得到
-  `("D:", "shot.1001.exr")`，在 POSIX 上得到 `("", "D:shot.1001.exr")`，
-  `name`、`absname`、`wild_name`、`template` 都会随之不同。
+  `("D:", "shot.1001.exr")`，在 POSIX 上得到 `("", "D:shot.1001.exr")`。
+  这一条连 `basename` 都不同，`name`、`absname`、`wild_name`、`template`
+  也会随之不同；它不能进入跨平台契约。
 * **盘符根目录下的文件** —— `os.path.split("D:/a.1001.exr")` 的 `dirname` 在 Windows
-  上是 `"D:/"`，在 POSIX 上是 `"D:"`。只有 `dirname` 不同；
+  上是 `"D:/"`，在 POSIX 上是 `"D:"`。只有 `dirname` 不同，
   `basename`、`absname`、`padding`、`template` 完全一致。
+* **UNC 路径** —— `ntpath` 保留 `//server/share/` 的尾斜杠，`posixpath` 丢掉它。
+  同样只有 `dirname` 不同。
 
-因为盘符根目录的 `dirname` 不具备跨平台一致性，给文件分组时请用 `absname` + `ext`
-作为序列键，而不要直接用 `dirname` 字符串。这些输入都不在快照 fixture 里，
-因此记录下来的每一条用例都与平台无关。
+因此快照 fixture 把 `dirname` 当作「平台相关但写法无关」：比对前先去掉尾斜杠，
+于是 `D:/` 与 `D:` 视为相等；其余所有字段必须逐字节一致。精确的路径头部由
+`PlatformPathTests` 按平台锁定，`tools/check_posix.py` 则在全部记录输入上验证
+「除它以外没有别的差异」。若要跨平台给文件分组，请用 `absname` + `ext` 作为键，
+而不要用裸 `dirname` 字符串。
 
 ## 2. 扩展名解析（`_split_ext`）
 

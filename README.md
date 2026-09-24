@@ -60,15 +60,8 @@ Editable install for development (needs `setuptools >= 61`):
 python -m pip install -e .
 ```
 
-If PyPI is slow or unreachable, point pip at the Tsinghua mirror:
-
-```console
-python -m pip install -e . -i https://pypi.tuna.tsinghua.edu.cn/simple
-```
-
-The test suite needs no third-party packages. `tools/run_matrix.ps1` writes that
-mirror into each `.venvXX/pip.ini`, so manual installs inside those
-environments use it by default; pass `-IndexUrl ''` to keep the default index.
+The test suite needs no third-party packages, so it runs straight from a clone
+without installing anything.
 
 ## Attributes
 
@@ -183,6 +176,10 @@ Run the full interpreter matrix (creates `.venv37`, `.venv39`, `.venv310`,
 ```powershell
 powershell -ExecutionPolicy Bypass -File tools/run_matrix.ps1
 ```
+
+The script also points each environment's pip at a mirror, so that manual
+installs inside those venvs work on slow networks; the default lives in the
+script itself and can be overridden or switched off with `-IndexUrl`.
 
 The suite contains five layers:
 

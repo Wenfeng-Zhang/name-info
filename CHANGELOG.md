@@ -75,6 +75,10 @@ First release of the restructured project.
   snapshot fixture into `PlatformPathTests`. Snapshots and digests are therefore
   byte-identical on Windows and POSIX (verified), which the CI matrix needs in
   order to be green on Linux and macOS.
+- README: the mirror-specific install instructions were removed (they only
+  matter on slow networks in China) and replaced with a neutral note about the
+  local matrix script; the mirror default now lives only in
+  `tools/run_matrix.ps1`.
 
 ### Removed
 

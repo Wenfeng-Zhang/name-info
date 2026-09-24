@@ -57,15 +57,7 @@ python -m pip install .
 python -m pip install -e .
 ```
 
-如果 PyPI 访问缓慢或不通，改用清华大学镜像站：
-
-```console
-python -m pip install -e . -i https://pypi.tuna.tsinghua.edu.cn/simple
-```
-
-测试本身不需要任何第三方包。`tools/run_matrix.ps1` 会把该镜像写进每个
-`.venvXX/pip.ini`，因此在这些环境里手动安装也会默认走镜像；
-传 `-IndexUrl ''` 可恢复使用 pip 默认源。
+测试本身不需要任何第三方包，因此克隆下来即可直接运行，无需安装。
 
 ## 属性说明
 
@@ -179,6 +171,9 @@ python tests/test_name_info.py
 ```powershell
 powershell -ExecutionPolicy Bypass -File tools/run_matrix.ps1
 ```
+
+脚本还会把每个虚拟环境的 pip 指向一个镜像（默认是清华大学镜像站），方便网络不畅时
+在 venv 里手动装包；可以用 `-IndexUrl` 覆盖或关闭。
 
 测试分为五层：
 
